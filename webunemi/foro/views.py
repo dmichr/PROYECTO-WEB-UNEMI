@@ -7,13 +7,13 @@ from django.shortcuts import render
 
 
 def home(request):
-    return render(request, 'heustonn-html/index.html')
+    return render(request, 'index.html')
 
 def about(request):
-    return render(request, 'heustonn-html/about.html')
+    return render(request, 'about.html')
 
 def service(request):
-    return render(request, 'heustonn-html/service.html')
+    return render(request, 'service.html')
 
 def contact(request):
-    return render(request, 'heustonn-html/contact.html')
+    return render(request, 'contact.html')
