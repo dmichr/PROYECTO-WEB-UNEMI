@@ -17,6 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from foro.views import *
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', home, name='home'),  # URL raíz
+    path('index.html/', home, name='home'),
+    path('/about.html/', about, name='about'),
+    path('/service.html/', service, name='service'),
+    path('/contact.html/', contact, name='contact'),
 ]
