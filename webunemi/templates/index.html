@@ -12,7 +12,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Unemi</title>
+  <title>ODEME - !Economía OnLine!</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css"
@@ -26,19 +26,19 @@
   <!-- Custom styles for this template -->
   <link href="{% static 'css/style.css' %}" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+  <link href="{% static 'static/css/responsive.css' %}" rel="stylesheet" />
 </head>
 
 <body>
   <div class="hero_area">
     <!-- header section strats -->
+    {% block header %}
     <header class="header_section">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
-            <span>
-              Heustonn
-            </span>
+          <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{%static 'images/LOGO ODEME OFICIAL BLANCO.png'%}" width="600" height="100" alt="Logo-odeme.png oficial">
+          
           </a>
           <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -50,16 +50,16 @@
             <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'home' %}">Inicio <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'about' %}"> About </a>
+                  <a class="nav-link" href="{% url 'about' %}"> Sobre nosotros </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'service' %}"> Services </a>
+                  <a class="nav-link" href="{% url 'service' %}"> Servicios </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'contact' %}">Contact us</a>
+                  <a class="nav-link" href="{% url 'contact' %}">Contactanos</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Login</a>
@@ -73,8 +73,12 @@
         </nav>
       </div>
     </header>
+    {% endblock header %}
+    
     <!-- end header section -->
     <!-- slider section -->
+  
+  {% block body %} 
     <section class=" slider_section position-relative">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -481,15 +485,20 @@
         </div>
       </div>
     </section>
-    <!-- info section -->
+  {% endblock body %}
+
+  {% block info_section %}
+
+ <!-- info section -->
     <section class="info_section layout_padding">
       <div class="container">
         <div class="row">
           <div class="col-md-3">
             <div class="info-logo">
-              <h2>
-                Heustonn
-              </h2>
+               <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{%static 'images/LOGO ODEME OFICIAL BLANCO.png'%}" width="600" height="100" alt="Logo-odeme.png oficial">
+          
+          </a>
               <p>
                 It is a long established fact that a reader will be distracted by the readable content of a page when
                 looking at its layout. The point of
@@ -499,32 +508,32 @@
           <div class="col-md-3">
             <div class="info-nav">
               <h4>
-                Navigation
+                Navega
               </h4>
               <ul>
                 <li>
-                  <a href="index.html">
-                    Home
+                  <a href="{% url 'home' %}">
+                    Inicio
                   </a>
                 </li>
                 <li>
-                  <a href="about.html">
-                    About
+                  <a href="{% url 'about' %}">
+                    Sobre nosotros
                   </a>
                 </li>
                 <li>
-                  <a href="service.html">
-                    Services
+                  <a href="{% url 'service' %}">
+                    Servicios
                   </a>
                 </li>
                 <li>
-                  <a href="contact.html">
+                  <a href="{% url 'contact' %}">
                     Contact Us
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    Login
+                    Inicia Sección
                   </a>
                 </li>
               </ul>
@@ -606,21 +615,25 @@
         </div>
       </div>
     </section>
-
+  {% endblock info_section %}
+   
 
 
     <!-- end info_section -->
-
-    <!-- footer section -->
+  {% block footer %}
+     <!-- footer section -->
     <section class="container-fluid footer_section">
       <p>
-        Copyright &copy; 2019 All Rights Reserved By
-        <a href="https://html.design/">Free Html Templates</a>
+        Copyright &copy; 2024 Todos los derechos reservado</a>
       </p>
     </section>
     <!-- footer section -->
+  {% endblock footer %}
 
-     <script type="text/javascript" src="{% static 'static/js/jquery-3.4.1.min.js' %}"></script>
+
+   
+
+  <script type="text/javascript" src="{% static 'static/js/jquery-3.4.1.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'static/js/bootstrap.js' %}"></script>
 
 </body>

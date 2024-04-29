@@ -40,7 +40,7 @@ body {
 .custom_heading-container h3 {
   text-transform: uppercase;
   font-weight: bold;
-  color: #000000;
+  color: #0b1635;
   position: relative;
 }
 
@@ -53,7 +53,7 @@ body {
   height: 7px;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  background-color: #ff4f5a;
+  background-color: #8b6568f9;
   border-radius: 15px;
 }
 
@@ -94,7 +94,7 @@ body {
 }
 
 .header_section {
-  background-color: #000000;
+  background-color: #0b1635;
   font-family: "Poppins", sans-serif;
 }
 
@@ -124,7 +124,7 @@ body {
   height: 4px;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  background-color: #ff4f5a;
+  background-color: #d84524;
   border-radius: 5px;
 }
 
@@ -175,7 +175,7 @@ a:focus {
 }
 
 .navbar-brand img {
-  width: 45px;
+  width: 250px;
   margin-right: 5px;
 }
 
@@ -361,7 +361,7 @@ a:focus {
 }
 
 .work_section {
-  background-color: #ff4f5a;
+  background-color: #f25900;
 }
 
 .work_section .custom_heading-container h3 {
@@ -591,7 +591,7 @@ a:focus {
 }
 
 .info_section {
-  background-color: #ff4f5a;
+  background-color: #0b1635;
   color: #ffffff;
 }
 
