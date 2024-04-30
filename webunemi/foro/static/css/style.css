@@ -175,8 +175,8 @@ a:focus {
 }
 
 .navbar-brand img {
-  width: 250px;
-  margin-right: 5px;
+  width: 290px;
+  margin-right: 10px;
 }
 
 .navbar-brand span {
@@ -527,18 +527,26 @@ a:focus {
 }
 
 .contact_section button {
-  background-color: #ff4f5a;
-  padding: 12px 55px;
-  outline: none;
-  border: none;
-  border: 1px solid #ff4f5a;
+  background-color: #e34825;
   color: #fff;
-  margin-top: 25px;
+  border: none;
+  border-radius: 25px;
+  /* Agregamos bordes redondeados */
+  padding: 15px 40px;
+  /* Ajustamos el espaciado interno */
+  font-size: 16px;
+  /* Tamaño de fuente */
+  font-weight: bold;
+  /* Texto en negrita */
+  cursor: pointer;
+  /* Cambiamos el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease;
+  /* Efecto de transición suave */
 }
 
 .contact_section button:hover {
-  color: #ff4f5a;
-  background-color: transparent;
+  background-color: #0075f3;
+  /* Cambiamos el color de fondo al pasar el mouse */
 }
 
 .client_section .client_container {
@@ -604,6 +612,7 @@ a:focus {
   margin-top: 15px;
   margin-bottom: 15px;
   font-weight: bold;
+  color: #e34825;
 }
 
 .info_section .info-logo h2 {

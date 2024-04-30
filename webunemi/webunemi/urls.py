@@ -21,7 +21,6 @@ from foro.views import *
 
 urlpatterns = [
     path('', home, name='home'),  # URL raíz
-    path('index.html/', home, name='home'),
     path('about.html/', about, name='about'),
     path('service.html/', service, name='service'),
     path('contact.html/', contact, name='contact'),
