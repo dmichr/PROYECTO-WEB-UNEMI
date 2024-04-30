@@ -1,4 +1,5 @@
 body {
+  padding-top: 100px;
   font-family: 'Roboto', sans-serif;
   color: #000000;
   background-color: #ffffff;
@@ -94,8 +95,14 @@ body {
 }
 
 .header_section {
+  position: fixed;
   background-color: #0b1635;
   font-family: "Poppins", sans-serif;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
 }
 
 .header_section .container-fluid {
