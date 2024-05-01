@@ -79,17 +79,16 @@ WSGI_APPLICATION = 'webunemi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlserver',
-        'NAME': 'Odemebdd',
-        'USER': 'odeme',
-        'PASSWORD': 'odeme1',
-        'HOST': 'localhost',
-        'PORT': '',  # Puerto por defecto para SQL Server
-        'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server',
-        },
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'odemebdd',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',  # Puerto por defecto para SQL Server
+        
+        }
     }
-}
+
 
 
 
