@@ -24,7 +24,8 @@
                 <!--Formulario de Login y registro-->
                 <div class="contenedor__login-register">
                     <!--Login-->
-                    <form action="" class="formulario__login">
+                    <form id="login-form" action="{% url 'login' %}" method="post" class="formulario__login">
+                        {% csrf_token %}
                         <h2>Iniciar Sesión</h2>
                         <input type="text" placeholder="Correo Electronico">
                         <input type="password" placeholder="Contraseña">
@@ -32,7 +33,8 @@
                     </form>
 
                     <!--Register-->
-                    <form action="" class="formulario__register">
+                    <form id="login-form" action="{% url 'login' %}" method="post" class="formulario__register">
+                        {% csrf_token %}
                         <h2>Regístrarse</h2>
                         <input type="text" placeholder="Nombre completo">
                         <input type="text" placeholder="Correo Electronico">
