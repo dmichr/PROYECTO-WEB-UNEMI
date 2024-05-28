@@ -24,23 +24,23 @@
                 <!--Formulario de Login y registro-->
                 <div class="contenedor__login-register">
                     <!--Login-->
-                    <form id="login-form" action="{% url 'login' %}" method="post" class="formulario__login">
+                    <form id="login-form" action="{% url 'dashboard' %}" method="POST" class="formulario__login">
                         {% csrf_token %}
                         <h2>Iniciar Sesión</h2>
-                        <input type="text" placeholder="Correo Electronico">
-                        <input type="password" placeholder="Contraseña">
+                        <input type="text" name="email" placeholder="Correo Electronico">
+                        <input type="password" name="password" placeholder="Contraseña">
                         <button>Entrar</button>
                     </form>
 
                     <!--Register-->
-                    <form id="login-form" action="{% url 'login' %}" method="post" class="formulario__register">
+                    <form id="register-form" action="{% url 'login' %}" method="POST" class="formulario__register">
                         {% csrf_token %}
                         <h2>Regístrarse</h2>
-                        <input type="text" placeholder="Nombre completo">
-                        <input type="text" placeholder="Correo Electronico">
-                        <input type="text" placeholder="Usuario">
-                        <input type="password" placeholder="Contraseña">
-                        <button>Regístrarse</button>
+                        <input type="text" name="full_name" placeholder="Nombre completo" required>
+                        <input type="text" name="email" placeholder="Correo Electronico" required>
+                        <input type="text" name="username" placeholder="Usuario" required>
+                        <input type="password" name="password" placeholder="Contraseña" required>
+                        <button type="submit">Regístrarse</button>
                     </form>
                 </div>
             </div>
@@ -56,3 +56,4 @@
 {% endblock footer %}
 </body>
 </html>
+
