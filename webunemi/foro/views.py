@@ -7,16 +7,16 @@ from .models import Usuario
 
 
 def home(request):
-    return render(request, 'index.html')
+    return render(request, 'core/index.html')
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'core/about.html')
 
 def service(request):
-    return render(request, 'service.html')
+    return render(request, 'core/service.html')
 
 def contact(request):
-    return render(request, 'contact.html')
+    return render(request, 'core/contact.html')
 
 def login(request):
     if request.method == 'POST':

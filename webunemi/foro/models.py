@@ -30,9 +30,11 @@ class Usuario(models.Model):
                     _('El usuario debe ser igual al prefijo del correo electrónico.'),
                     code='invalid'
                 )
+    class Meta:
+        verbose_name = 'Usuario'
+        verbose_name_plural = 'Usuarios'
+        ordering = ['id']
 
-class Registro(models.Model):
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    fecha_registro = models.DateTimeField(auto_now_add=True)
-    # Agrega más campos según tus necesidades
+
+    
 

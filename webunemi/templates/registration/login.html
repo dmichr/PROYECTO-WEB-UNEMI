@@ -1,4 +1,4 @@
-{% extends "index.html" %}
+{% extends "core/index.html" %}
 
 {% load static %} 
 
@@ -24,22 +24,23 @@
                 <!--Formulario de Login y registro-->
                 <div class="contenedor__login-register">
                     <!--Login-->
-                    <form id="login-form" action="{% url 'dashboard' %}" method="POST" class="formulario__login">
+                    <form id="login-form" action="{% url 'sing up' %}" method="POST" class="formulario__login">
                         {% csrf_token %}
                         <h2>Iniciar Sesión</h2>
                         <input type="text" name="email" placeholder="Correo Electronico">
                         <input type="password" name="password" placeholder="Contraseña">
-                        <button>Entrar</button>
+                        <button type='submit'  >Entrar</button>
                     </form>
 
                     <!--Register-->
-                    <form id="register-form" action="{% url 'login' %}" method="POST" class="formulario__register">
+                    <form id="register-form" action="{% url 'sing up' %}" method="POST" class="formulario__register">
                         {% csrf_token %}
                         <h2>Regístrarse</h2>
                         <input type="text" name="full_name" placeholder="Nombre completo" required>
                         <input type="text" name="email" placeholder="Correo Electronico" required>
                         <input type="text" name="username" placeholder="Usuario" required>
                         <input type="password" name="password" placeholder="Contraseña" required>
+                        
                         <button type="submit">Regístrarse</button>
                     </form>
                 </div>
