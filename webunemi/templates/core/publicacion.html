@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ publicacion.titulo }}</title>
+   
+</head>
+<body>
+    <div class="publicacion-detalle">
+    <h1>{{ publicacion.titulo }}</h1>
+    {% if publicacion.imagen %}
+        <img src="{{ publicacion.imagen.url }}" alt="{{ publicacion.titulo }}" style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto;">
+        {% else %}
+        <p>No hay imagen disponible.</p>
+        {% endif %}
+    <div class="contenido">
+        {{ html_contenido|safe }}
+        <p>Este es un párrafo de prueba.</p>
+    </div>
+    </div>
+</body>
+
+<!--se puede adecuar para las publicaciones -->

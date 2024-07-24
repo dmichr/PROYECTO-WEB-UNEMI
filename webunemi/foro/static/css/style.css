@@ -281,10 +281,7 @@ a:focus {
 }
 
 /* end slider section */
-.bg {
-  background-image: url(../images/bg4.jpg);
-  background-size: cover;
-}
+
 
 .about_section {
   text-align: center;
@@ -659,7 +656,7 @@ a:focus {
 }
 
 .info_section .info-contact h6 {
-  color: #000000;
+  color: #fdfdfd;
   font-size: 18px;
 }
 
@@ -692,6 +689,32 @@ a:focus {
 
 .footer_section a {
   color: #171717;
+}
+
+.instagram-icono {
+  width: 28px;
+  height: 28px;
+}
+.tik-tok-icono {
+  width: 28px;
+  height: 28px;
+}
+.x-icono {
+  width: 30px;
+  height: 30px;
+}
+.facebook-icono {
+  width: 28px;
+  height: 28px;
+}
+.social-box {
+  margin-bottom: 25px;
+  /* Agrega un margen inferior entre la caja de redes sociales y el formulario de búsqueda */
+}
+#search-input {
+  margin-top: 20px;
+  margin-left: -22px;
+  
 }
 
 /* end footer section*/

@@ -19,19 +19,20 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from foro.views import *
-
+from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),  # URL raíz
     path('about.html/', about, name='about'),
     path('service.html/', service, name='service'),
     path('contact.html/', contact, name='contact'),
+    path('login.html/', register, name='register'),
     path('login.html/', login, name='login'),
+    path('dashboard.html/', dashboard, name='dashboard'),
     path('accounts/',include('django.contrib.auth.urls')),
-    path('', register_view, name='sing up'),
-    
-    path('register/', register_view, name='register'),
-]
+    path('publicacion/<int:id>/', detalle_publicacion, name='detalle_publicacion'),
+   
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 

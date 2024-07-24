@@ -61,4 +61,21 @@ anchoPage();
             caja_trasera_login.style.display = "block";
             caja_trasera_login.style.opacity = "1";
         }
-}
+    }
+
+//search button
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('search-form');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Evitar que el formulario se envíe
+
+        const input = document.getElementById('search-input').value;
+        // Aquí puedes implementar la lógica para realizar la búsqueda
+        // Por ejemplo, redireccionar a una página de resultados o mostrar los resultados en el mismo sitio.
+        // En este ejemplo, simplemente mostraremos el término de búsqueda en la consola.
+        console.log('Búsqueda realizada:', input);
+
+        // Puedes redirigir a una página de resultados, por ejemplo:
+        // window.location.href = '/buscar/?q=' + encodeURIComponent(input);
+    });
+});

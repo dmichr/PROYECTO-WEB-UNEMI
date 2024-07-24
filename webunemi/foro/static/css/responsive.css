@@ -100,11 +100,13 @@
         }
     }
 
-    .work_section .work_container .box.b-1,
-    .work_section .work_container .box.b-3,
-    .work_section .work_container .box.b-2,
-    .work_section .work_container .box.b-4 {
-        animation-duration: 1.5s;
+    /* Aplicar animaciones a cada caja de publicación */
+    .work_section .work_container .box:nth-child(odd) {
+        animation: odd-box-animate 1.5s ease-in-out infinite;
+    }
+
+    .work_section .work_container .box:nth-child(even) {
+        animation: even-box-animate 1.5s ease-in-out infinite;
     }
 }
 
