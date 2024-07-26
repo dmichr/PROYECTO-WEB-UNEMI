@@ -99,16 +99,24 @@
             transform: translateY(-25px);
         }
     }
-
-    /* Aplicar animaciones a cada caja de publicación */
-    .work_section .work_container .box:nth-child(odd) {
-        animation: odd-box-animate 1.5s ease-in-out infinite;
-    }
-
-    .work_section .work_container .box:nth-child(even) {
-        animation: even-box-animate 1.5s ease-in-out infinite;
-    }
+    
+     
+    .work_section .work_container .box {
+            animation-duration: 1.5s;
+        }
+        
+   .work_section .work_container .box {
+       animation: odd-box-animate 1.5s ease-in-out infinite;
+   }
+   
+   .work_section .work_container .box {
+       animation: even-box-animate 1.5s ease-in-out infinite;
+   }
+       
 }
+
+
+
 
 @media (max-width: 480px) {}
 

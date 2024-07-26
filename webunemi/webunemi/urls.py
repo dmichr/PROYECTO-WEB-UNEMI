@@ -26,6 +26,7 @@ urlpatterns = [
     path('about.html/', about, name='about'),
     path('service.html/', service, name='service'),
     path('contact.html/', contact, name='contact'),
+    path('contact/success/', contact_success, name='contact_success'),
     path('login.html/', register, name='register'),
     path('login.html/', login, name='login'),
     path('dashboard.html/', dashboard, name='dashboard'),

@@ -11,7 +11,8 @@
     <div class="container layout_padding2-top">
       <div class="row">
         <div class="col-md-6 mx-auto">
-          <form action="">
+          <form action="" >
+            {% csrf_token %}
             <div>
               <input type="text" placeholder="Nombre Completo">
             </div>
@@ -24,9 +25,9 @@
             <div>
               <select name="" id="">
                 <option value="" disabled selected>Tipo de Servicio</option>
-                <option value="">Servicio 1</option>
-                <option value="">Servicio 2</option>
-                <option value="">Servicio 3</option>
+                <option value="">Duda o comentario</option>
+                <option value="">Requerimiento</option>
+                <option value="">Sugerencia </option>
               </select>
             </div>
             <div>

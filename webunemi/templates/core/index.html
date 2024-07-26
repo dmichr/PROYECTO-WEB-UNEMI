@@ -77,6 +77,37 @@
     <!-- slider section -->
 <body>  
   {% block body %} 
+  <div class="container-all">
+        <a href="https://www.unemi.edu.ec/" target="_blank">
+        <input type="radio" id="1" name="image-side" hidden/>
+        <input type="radio" id="2" name="image-side" hidden/>
+        <input type="radio" id="3" name="image-side" hidden/>
+        <div class="slider">
+            <div class="item-slider">
+                <img class= 'carrusell1'src="static/images/UnemiCarrusell1.jpg">
+            </div>
+
+            <div class="item-slider">
+                <img src="static/images/Unemipg2.jpg">
+            </div>
+
+            <div class="item-slider">
+                <img src="static/images/Unemipg3.jpg">
+            </div>
+        </div>
+        <div class="pagination">
+            <label class="pagination-item" for="1"><img src="static/images/Unemipag1.jpg"></label>
+            <label class="pagination-item" for="2"><img src="static/images/Unemipg2.jpg"></label>
+            <label class="pagination-item" for="3"><img src="static/images/Unemipg3.jpg"></label>
+        </div>
+        </a>
+    </div>
+
+
+
+
+
+  <!-- CARRUSEL 
     <section class=" slider_section position-relative">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -127,6 +158,9 @@
         </div>
       </div>
     </section>
+
+    -->
+
     <!-- end slider section -->
   </div>
   <div class="bg">
@@ -136,20 +170,16 @@
       <div class="container">
         <div class="custom_heading-container">
           <h3 class=" ">
-            ABOUT OUR COMPANY
+            Bienvenidos al sitio oficial de ODEME
           </h3>
         </div>
         <p class="layout_padding2-top">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+          Observatorio de Datos Económicos y Modelos Econométricos, un proyecto en conjunto con la carrera de Economía en Linea de la Univesidad Estatal de Milagro
         </p>
         <div class="img-box layout_padding2">
-          <img src="static/images/about-img.jpg" alt="">
+          <img class='logo-odeme-index'src="static/images/LOGO ODEME OFICIAL.png" alt="Logo-economia en linea">
         </div>
-        <p class="layout_padding2-bottom">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        </p>
+        
       </div>
       
     </section>
@@ -163,29 +193,29 @@
       <div class="container">
         <div class="custom_heading-container">
           <h3 class=" ">
-            OUR SERVICES
+            Nuestros servicios
           </h3>
         </div>
         <p class="">
-          ad minim veniam, quis nostrud exercitation ullamco
+          Dentro de nuestro equipo con contamos con profesionales prestos para asesorarte en varios servicios como
         </p>
         <div class="service_container ">
           <div class="row">
             <div class="col-md-3">
               <div class="box b-1">
                 <div class="img-box">
-                  <img src="static/images/s-1.jpg" alt="">
+                  <img src="static/images/libro.gif" alt="">
                 </div>
                 <div class="detail-box">
                   <h6>
-                    Tab Services
+                    Biblioteca
                   </h6>
                   <p>
-                    adipiscing elit, sed do eiusmod tempor incididunt
+                    una selecta recopilación de ejemplares que puedes revisar
                   </p>
                   <div class="btn-box">
                     <a href="">
-                      Read More
+                      ------
                     </a>
                     <hr>
                   </div>
@@ -195,18 +225,18 @@
             <div class="col-md-3">
               <div class="box b-2">
                 <div class="img-box">
-                  <img src="static/images/s-2.jpg" alt="">
+                  <img src="static/images/base-de-datos.gif" alt="">
                 </div>
                 <div class="detail-box">
                   <h6>
-                    Pipe Water
+                    Base de datos
                   </h6>
                   <p>
-                    adipiscing elit, sed do eiusmod tempor incididunt
+                    el repositorio de datos util para tus proyectos
                   </p>
                   <div class="btn-box">
                     <a href="">
-                      Read More
+                      -----
                     </a>
                     <hr>
                   </div>
@@ -216,18 +246,18 @@
             <div class="col-md-3">
               <div class="box b-3">
                 <div class="img-box">
-                  <img src="static/images/s-3.jpg" alt="">
+                  <img src="static/images/tutoria-en-linea.gif" alt="">
                 </div>
                 <div class="detail-box">
                   <h6>
-                    Washing Machine
+                    Tutorías 
                   </h6>
                   <p>
-                    adipiscing elit, sed do eiusmod tempor incididunt
+                    personal docente capacitado para resolver tus dudas o inquietudes
                   </p>
                   <div class="btn-box">
                     <a href="">
-                      Read More
+                      ------
                     </a>
                     <hr>
                   </div>
@@ -237,18 +267,18 @@
             <div class="col-md-3">
               <div class="box b-4">
                 <div class="img-box">
-                  <img src="static/images/s-4.jpg" alt="">
+                  <img src="static/images/megafono.gif" alt="">
                 </div>
                 <div class="detail-box">
                   <h6>
-                    Hand Washing
+                    Anuncios
                   </h6>
                   <p>
-                    adipiscing elit, sed do eiusmod tempor incididunt
+                    permanece atento a nuestras actividades
                   </p>
                   <div class="btn-box">
                     <a href="">
-                      Read More
+                      ------
                     </a>
                     <hr>
                   </div>
@@ -274,8 +304,8 @@
       </div>
       <div class="work_container ">
         {% for publicacion in publicaciones %}
-        <div class="box">
-          <a href="{% url 'detalle_publicacion' publicacion.id %}">
+        <div class="box " >   <!-- box-{{ forloop.counter }} -->  
+          <a href="{% url 'detalle_publicacion' publicacion.id %}" target="_blank">
             <div class="img-box">
               <img src="{{ publicacion.imagen.url }}" alt="{{ publicacion.titulo }}">           
             <div class="name">
@@ -288,6 +318,8 @@
         </div>
         {% endfor %}
       </div>
+
+      <!--     se podria adicionar un html que redirecione a un listado con todas las publicaciones/visibles para el usuario
       <div class="container">
         <div class="btn-box">
           <a href="{% url 'home' %}">
@@ -296,6 +328,7 @@
           <hr>
         </div>
       </div>
+      --> 
 
       <!--   
         <div class="box b-1">
@@ -353,53 +386,9 @@
 
     <!-- end work section -->
 
-    <!-- contact section -->
-
-    <section class="contact_section layout_padding">
-      <div class="custom_heading-container">
-        <h3 class=" ">
-          Haz tu consulta!
-        </h3>
-      </div>
-      <div class="container layout_padding2-top">
-        <div class="row">
-          <div class="col-md-6 mx-auto">
-            <form action="">
-              <div>
-                <input type="text" placeholder="Nombre Completo">
-              </div>
-              <div>
-                <input type="email" placeholder="Correo electrónico">
-              </div>
-              <div>
-                <input type="text" placeholder="Celular">
-              </div>
-              <div>
-                <select name="" id="">
-                  <option value="" disabled selected>Tipo de Servicio</option>
-                  <option value="">Servicio 1</option>
-                  <option value="">Servicio 2</option>
-                  <option value="">Servicio 3</option>
-                </select>
-              </div>
-              <div>
-                <input type="text" class="message-box" placeholder="Mensaje">
-              </div>
-              <div class="d-flex justify-content-center ">
-                <button>
-                  Enviar
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- end contact section -->
-
-    <section class="client_section layout_padding-bottom">
+    
+ <!-- Comentarios feedback -->
+    <section class="client_section layout_padding-bottom" style="margin-top: 50px;">
       <div class="container">
         <div class="custom_heading-container">
           <h3 class=" ">
@@ -410,8 +399,7 @@
           <div class="client_container">
             <div class="detail-box">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                "ODEME ha transformado la manera en que analizamos datos económicos. Sus herramientas y recursos son invaluables para nuestras investigaciones y proyectos. ¡Altamente recomendado para estudiantes y profesionales de economía!"
               </p>
             </div>
             <div class="client_id">
@@ -420,10 +408,10 @@
               </div>
               <div class="name">
                 <h5>
-                  tempor incididunt
+                  Mario Sánchez
                 </h5>
                 <h6>
-                  Estudiante
+                  Estudiante de Economía
                 </h6>
               </div>
             </div>
@@ -494,7 +482,7 @@
                 <h6>
                   Dirección:
                 </h6>
-                <a href="https://goo.gl/maps/RUxqKJMrTkxVmz9C6">
+                <a href="https://goo.gl/maps/RUxqKJMrTkxVmz9C6" target="_blank">
                   <img src="static/images/location.png" alt="">
                   <span>
                     Dr. Rómulo Minchala Murillo, 091051  Milagro, Ecuador
@@ -510,16 +498,16 @@
               </h4>
               
               <div class="social-box">
-                <a href="https://www.facebook.com/EconomiaOnlineUnemi">
+                <a href="https://www.facebook.com/EconomiaOnlineUnemi" target="_blank">
                   <img src={% static "images/facebook.png"  %} alt="Facebook icon" class= 'facebook-icono'>
                 </a>
-                <a href="https://twitter.com/EcoOnlineUnemi">
+                <a href="https://twitter.com/EcoOnlineUnemi" target="_blank">
                   <img src= {% static "images/x.png" %} alt="X-icon" class='x-icono'>
                 </a>
-                <a href="https://www.instagram.com/economiaonlineunemi/">
+                <a href="https://www.instagram.com/economiaonlineunemi/" target="_blank">
                   <img src= {% static "images/instagram.png" %} alt="Instagran icon" class= 'instagram-icono'> 
                 </a>
-                <a href="https://www.tiktok.com/@economiaonlineunemi">
+                <a href="https://www.tiktok.com/@economiaonlineunemi" target="_blank">
                   <img src={% static "images/tik-tok.png"  %} alt="Tik-tok icon" class='tik-tok-icono'>
                 </a>
               </div>
@@ -547,6 +535,8 @@
   {% endblock footer %}
   <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+
+  
 
 </body>
 

@@ -140,8 +140,19 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
-
-# settings.py
+#para validar login y cierre de secion
 LOGIN_REDIRECT_URL = '/index.html'
 LOGOUT_REDIRECT_URL= '/' 
+
+
+
+#cofiguracion piloto para envio de correos-contactos
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'michelitaromero.o.@gmail.com'  # Usa una cuenta de Gmail válida
+EMAIL_HOST_PASSWORD = 'FerTalamonti.78'
+DEFAULT_FROM_EMAIL = 'dromeroo@unemi.edu..ec'  # Dirección desde la que se enviarán los correos
+

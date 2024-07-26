@@ -1,36 +1,75 @@
 {% extends "core/index.html" %}
 {% load static %}  <!-- Carga de archivos estáticos -->
 {% block body %} 
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/locales/es.global.min.js'></script>
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          locale: 'es',
+          events: '/static/json/events.json',
+          buttonText:{
+            today: 'Hoy'
+          }
+          
+        });
+        calendar.render();
+      });
+
+    </script>
+
+
+
   <!-- about section -->
   <section class="about_section layout_padding">
     <div class="container">
       <div class="custom_heading-container">
         <h3 class=" ">
-          ABOUT OUR COMPANY
+          Sobre nosotros
         </h3>
       </div>
       <p class="layout_padding2-top">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        El 23 de noviembre de 2023 la Universidad Estatal de Milagro resolvió crear el Observatorio de Datos Económicos y Modelos Econométricos (ODEME)
+      </br>
+      </br>
+      Objetivo:
+      </br>
+        "Constituir un foro de análisis y reflexión sobre la realidad socioeconómica ecuatoriana, promoviendo el
+        intercambio fluido de ideas, estudios y propuestas, elaborando documentos científicos que contribuyan al
+        desarrollo de la economía regional y al mejor aprovechamiento de sus posibilidades y recursos"
       </p>
       <div class="img-box layout_padding2">
-        <img src="{% static 'images/about-img.jpg' %}" alt="">  <!-- Ubicación de archivos estáticos ajustada -->
+        <img class="logo-imago" src="{% static 'images/IMAGO.jpg' %}" alt="Logo-EconomiaenLinea">  <!--  -->
+        <img class="logo-economia" src="{% static 'images/EconomiaUnemi.jpg' %}" alt="Logo-EconomiaenLinea">  <!--  -->
       </div>
       <p class="layout_padding2-bottom">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        Aqui buscamos promover el intercambio de ideas, estudios y propuestas, elaborando documentos científicos que contribuyan al desarrollo económico regional. ODEME aspira a convertirse en un referente para la obtención y publicación de datos económicos relevantes.
       </p>
     </div>
     <div class="container">
       <div class="btn-box">
-        <a href="">
-          Read More
+        <a href="https://www.unemi.edu.ec/wp-content/uploads/2024/01/RESOLUCION-OCS-SO-21-2023-No22.pdf" target="_blank">     <!-- direcciona al archivo de resolucion  -->
+          Leer mas
         </a>
         <hr>
       </div>
     </div>
   </section>
   <!-- end about section -->
+  <div class="calendarname">
+    <h1>Calendario</h1>
+    <p>  </p>
+    <p>  </p>
+    <p>Conoce nuestra agenda de eventos</p>
+  </div>
+  <div style="width: 60%; margin:auto; margin-bottom: 40px;" id="calendar"></div>
+  <p>  </p>
+
+
+<script type="text/javascript" src="{% static 'js/calendar.js' %}"></script>
 {% endblock body %}
 
   

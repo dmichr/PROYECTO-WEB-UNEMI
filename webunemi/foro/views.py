@@ -4,6 +4,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.hashers import make_password
 from .models import Publicacion
 from .forms import CustomUserCreationForm
+
+from django.core.mail import send_mail
+from django.conf import settings
 # Create your views here.
 
 
@@ -29,7 +32,45 @@ def service(request):
     return render(request, 'core/service.html')
 
 def contact(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        service = request.POST.get('service')
+        message = request.POST.get('message')
+
+        # Componer el mensaje de correo electrónico
+        subject = f'Nueva consulta de {name}'
+        email_message = (
+            f'Nombre: {name}\n'
+            f'Correo electrónico: {email}\n'
+            f'Celular: {phone}\n'
+            f'Tipo de Servicio: {service}\n\n'
+            f'Mensaje:\n{message}'
+        )
+
+        # Enviar el correo al administrador
+        send_mail(
+            subject,
+            email_message,
+            settings.DEFAULT_FROM_EMAIL,
+            ['dromeroo@unemi.edu.ec'],
+            fail_silently=False,
+        )
+
+        return redirect('contact_success')  # Redirigir a una página de éxito
+
     return render(request, 'core/contact.html')
+
+
+def contact_success(request):
+    return render(request, 'contact_success.html')
+    
+    
+    
+    
+    
+    #return render(request, 'core/contact.html')
 
 def login(request):
     if request.method == 'POST':
