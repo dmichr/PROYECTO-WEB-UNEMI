@@ -1,0 +1,112 @@
+/* static/tu_app/css/styles.css */
+
+/* Estilos globales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Estilo para el contenedor principal */
+.container {
+    max-width: 800px;
+    margin: 20px;
+    text-align: left;
+}
+
+/* Estilo para el título */
+h1 {
+    color: #333;
+    text-align: center;
+    padding: 40px 0;
+    background-color: #0b1635;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+h1::before {
+    content: '';
+    position: absolute;
+    top: 80%;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: #ff7300;
+    animation: slideIn 2s ease infinite;
+}
+
+@keyframes slideIn {
+    0% {
+        left: -100%;
+    }
+
+    50% {
+        left: 0;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* Estilo para la lista de publicaciones */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    position: relative;
+}
+
+li:hover {
+    transform: translateY(-5px);
+}
+
+li img {
+    max-width: 150px;
+    margin-right: 20px;
+}
+
+li h2 {
+    color: #234092;
+}
+li .fecha {
+    color: #555;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    margin: 0;
+}
+
+li .link {
+    color: #555;
+    position: absolute;
+    bottom: 10px;
+    right: 130px;
+    margin: 0;
+}
+
+li p {
+    color: #555;
+       
+}
+
+li a {
+    color: #ffa500;
+    text-decoration: none;
+}
+
+li a:hover {
+    text-decoration: underline;
+}

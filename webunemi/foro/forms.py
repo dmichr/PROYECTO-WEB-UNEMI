@@ -3,7 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 
-
+'''
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
  
@@ -52,3 +52,4 @@ class CustomUserCreationForm(UserCreationForm):
 
 
 
+'''

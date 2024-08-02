@@ -1,0 +1,30 @@
+<!-- lista_publicaciones.html -->
+{% load static %} 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Publicaciones</title>
+    <link rel="stylesheet" href="{% static 'css/publicaciones.css' %}">
+</head>
+<body>
+    <h1>Listado de Publicaciones</h1>
+    <ul>
+        {% for publicacion in publicaciones %}
+            <li>
+                <h2>{{ publicacion.titulo }}</h2>
+                <p class="fecha">{{ publicacion.fecha_publicacion|date:"d/m/Y" }}</p>
+                {% if publicacion.imagen %}
+                    <img src="{{ publicacion.imagen.url }}" alt="{{ publicacion.titulo }}" width="200">
+                {% endif %}
+                {% if publicacion.html_contenido %}
+                    <p class="link" >Contenido adicional HTML disponible: <a href="{{ publicacion.html_contenido.url }} ">Ver</a></p>
+                {% endif %}
+                <p>{{ publicacion.contenido }}</p>
+            </li>
+        {% empty %}
+            <li>No hay publicaciones disponibles.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

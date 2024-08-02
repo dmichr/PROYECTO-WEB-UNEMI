@@ -53,13 +53,16 @@
                   <a class="nav-link" href="{% url 'home' %}">Inicio <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'about' %}"> Sobre nosotros </a>
+                  <a class="nav-link" href="{% url 'lista_publicaciones' %}"> Sobre nosotros </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'service' %}"> Servicios </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'contact' %}">Contactanos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'contact' %}">Boletines</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'login' %}">Login</a>
@@ -74,9 +77,36 @@
     {% endblock header %}
     
     <!-- end header section -->
-    <!-- slider section -->
+    
 <body>  
-  {% block body %} 
+  {% block body %}
+  <div class="container-all">
+    <div class="slider">
+      {% for image in carrusell %}
+        <input type="radio" id="slide{{ forloop.counter }}" name="slider" hidden />
+        <div class="item-slider">
+          <!-- validacion en caso no haya links vinculados a la imagen del carrusell -->
+          {% if image.get_link %}
+            <a href="{{ image.get_link }}" target="_blank">
+              <img src="{{ image.imagen.url }}" alt="Slide {{ forloop.counter }}">
+            </a>
+          {% else %}
+            <img src="{{ image.imagen.url }}" alt="Slide {{ forloop.counter }}">
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="pagination">
+      {% for image in carrusell %}
+        <label class="pagination-item" for="slide{{ forloop.counter }}">
+          <img src="{{ image.imagen.url }}" alt="Thumbnail {{ forloop.counter }}">
+        </label>
+      {% endfor %}
+    </div>
+  </div>
+ 
+
+  <!-- 
   <div class="container-all">
         <a href="https://www.unemi.edu.ec/" target="_blank">
         <input type="radio" id="1" name="image-side" hidden/>
@@ -102,7 +132,7 @@
         </div>
         </a>
     </div>
-
+  lider section -->
 
 
 
@@ -307,7 +337,10 @@
         <div class="box " >   <!-- box-{{ forloop.counter }} -->  
           <a href="{% url 'detalle_publicacion' publicacion.id %}" target="_blank">
             <div class="img-box">
-              <img src="{{ publicacion.imagen.url }}" alt="{{ publicacion.titulo }}">           
+              {{ publicacion.titulo }}
+              {% if publicacion.imagen %}
+                <img src="{{ publicacion.imagen.url }}" alt="{{ publicacion.titulo }}">  
+              {% endif %}         
             <div class="name">
               <h6>
                 {{ publicacion.titulo }}

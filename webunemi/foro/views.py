@@ -2,8 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout,authenticate, login as auth_login
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.hashers import make_password
-from .models import Publicacion
-from .forms import CustomUserCreationForm
+from .models import Publicacion, Carrusell
+
 
 from django.core.mail import send_mail
 from django.conf import settings
@@ -12,7 +12,12 @@ from django.conf import settings
 
 def home(request):
     publicaciones = Publicacion.objects.filter(activo=True).order_by('-fecha_publicacion')
-    return render(request, 'core/index.html', {'publicaciones': publicaciones})
+    carrusell = Carrusell.objects.filter(activo=True).order_by('-fecha_subida')
+    context = {
+        'publicaciones': publicaciones,
+        'carrusell': carrusell
+    }
+    return render(request, 'core/index.html', context)
     
     
 def detalle_publicacion(request, id):
@@ -23,6 +28,11 @@ def detalle_publicacion(request, id):
     else:
         html_contenido = publicacion.html_contenido
     return render(request, 'core/publicacion.html', {'publicacion': publicacion, 'html_contenido': html_contenido})
+
+
+def lista_publicaciones(request):
+    publicaciones = Publicacion.objects.order_by('-fecha_publicacion')
+    return render(request, 'core/lista_publicaciones.html', {'publicaciones': publicaciones})
 
 
 def about(request):

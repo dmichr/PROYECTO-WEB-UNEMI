@@ -35,6 +35,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -86,10 +87,32 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': '127.0.0.1',
         'PORT': '3306',  # Puerto por defecto para SQL Server
-        
-        }
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_ALL_TABLES'",
+        },
     }
+        
+}
 
+
+
+
+#JAZZMIN SETTING ADMIN 
+
+JAZZMIN_SETTINGS={
+     
+     "site_logo": "images/IMAGO.jpg",
+     "login_logo": "images/IMAGO.jpg",
+     "welcome_sign": "Bienvenido al Panel de Administración", 
+     "custom_css": "css/custom_admin.css",  
+      "copyright": "Todos los derechos reservados © UNEMI 2024",
+      
+}
+
+JAZZMIN_UI_TWEAKS = {
+    
+    "theme": "darkly",
+}
 
 
 

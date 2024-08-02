@@ -32,6 +32,7 @@ urlpatterns = [
     path('dashboard.html/', dashboard, name='dashboard'),
     path('accounts/',include('django.contrib.auth.urls')),
     path('publicacion/<int:id>/', detalle_publicacion, name='detalle_publicacion'),
+    path('publicaciones/', lista_publicaciones, name='lista_publicaciones'),
    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
