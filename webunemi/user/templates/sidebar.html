@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Usuario</title>
+    <link rel="icon" href="{% static 'images/IMAGO.png' %}" type="image/png">
+    <!-- Enlaces a estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.1/dist/tailwind.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <!-- Agregar estilos personalizados para forzar el hover dentro del contenedor específico -->
+    <style>
+        #custom-nav .hover\:text-orange-400:hover {
+            color: #f97316 !important;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-blue-900 to-white flex" id="custom-nav">
+    <nav class="bg-blue-900 w-64 h-screen flex flex-col items-center py-4">
+        <div class="flex items-center mb-8">
+            <img src="{% static 'images/IMAGO BLANCO.png' %}" alt="Logo" class="h-8 mr-2">
+            <span class="text-white text-xl font-bold">ODEME</span>
+        </div>
+        <ul class="text-white font-bold space-y-4 w-full text-center">
+            <li><a href="{% url 'user:dashboard' %}" class="hover:text-orange-400 block py-2">Inicio</a></li>
+            <li><a href="{% url 'user:profile' %}" class="hover:text-orange-400 block py-2">Perfil</a></li>
+            <li>
+                <a href="{% url 'user:dashboard' %}" class="hover:text-orange-400 block py-2 relative">
+                    Foro
+                    {% if unread_message_count > 0 %}
+                        <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2">{{ unread_message_count }}</span>
+                    {% endif %}
+                </a>
+            </li>
+            <li><a href="{% url 'lista_publicaciones' %}" class="hover:text-orange-400 block py-2">Publicaciones</a></li>
+            <li><a href="{% url 'user:dashboard' %}" class="hover:text-orange-400 block py-2">Mis Publicacioness</a></li>
+            <li><a href="{% url 'user:dashboard' %}" class="hover:text-orange-400 block py-2">Mapa</a></li>
+        </ul>
+        <a href="{% url 'user:logout' %}" class="mt-auto text-white py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 text-center block flex items-center justify-center hover:text-orange-400">
+            <i class='bx bx-log-out text-2xl mr-2'></i> Salir
+        </a>
+    </nav>
+    
+</section>
+    <div class="flex-grow">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    <!-- Cargar la API de Google Maps de forma asíncrona -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYTIrdYoQgrpBfZayR30G6_ObZViJ1Tn4&libraries=places&callback=initAutocomplete" async defer></script>
+    <script>
+        let autocomplete;
+        function initAutocomplete() {
+            autocomplete = new google.maps.places.Autocomplete(
+                document.getElementById('location'),
+                { types: ['geocode'] }
+            );
+
+            autocomplete.addListener('place_changed', function() {
+                const place = autocomplete.getPlace();
+                document.getElementById('latitude').value = place.geometry.location.lat();
+                document.getElementById('longitude').value = place.geometry.location.lng();
+            });
+        }
+    </script>
+</body>
+</html>

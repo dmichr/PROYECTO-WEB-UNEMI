@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Desentrañando los factores de riesgo de analfabetismo: Un estudio multivariante con regresión logística y variables socioeconómico.</title>
+
+<script src="libs/header-attrs-2.27/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+<link href="libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Desentrañando los factores de riesgo de
+analfabetismo: Un estudio multivariante con regresión logística y
+variables socioeconómico.</h1>
+<h3 class="subtitle">Un estudio multivariante con regresión logística y
+variables socioeconómico.</h3>
+<h4 class="author">Paredes Cevallos Patricia Elizabeth</h4>
+<address class="author_afil">
+UNIVERSIDAD ESTATAL DE MILAGRO<br><h4 class="author">Nelvita Soledad
+Gaibor Berrones</h4>
+<address class="author_afil">
+UNIVERSIDAD ESTATAL DE MILAGRO<br>
+</div>
+
+
+<style type="text/css">
+  body{
+  font-size: 11pt;
+}
+</style>
+<div id="modelo-de-regresion-logistica" class="section level1"
+number="1">
+<h1><span class="header-section-number">1</span> Modelo de Regresion
+logistica</h1>
+<p>Se toma la base de datos ENEMDU 2023 de la pagina del INEC</p>
+<div id="librerias" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Librerias</h2>
+<pre><code>library(effects)
+library(pROC)
+library(car)
+library(readxl)
+library(textshape)
+library(openxlsx)
+library(tidyverse)
+library(haven)
+library(srvyr)
+library(survey)
+library(sjmisc)
+library(cluster)
+library(factoextra)
+library(NbClust)
+library(tidyr)
+library(dplyr)
+library(fastDummies)
+library(GGally)</code></pre>
+</div>
+<div id="llamado-a-los-datos-base-de-datos-enemdu"
+class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> LLamado a los Datos,
+base de datos ENEMDU</h2>
+<pre class="r"><code>setwd(&quot;D:/Documentos/archivos Rstudio/Regresion_Logistica/Datos/&quot;)
+datos &lt;- read_sav(&quot;BDDenemdu_personas_2023_anual.sav&quot;)</code></pre>
+</div>
+<div id="tratamiento-de-datos" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Tratamiento de
+Datos</h2>
+<p>Revisar y preparar los datos para el análisis, lo que puede incluir:
+- Selección de Variables. - Limpieza de datos, eliminación de datos
+“NA”. - Transformación de variables. - Creación de variables adicionales
+si es necesario.</p>
+<p>Selección de datos para el modelo, filtramos por el Nivel de
+instrucción</p>
+<pre class="r"><code>term_bachi &lt;- datos[datos$p10a&lt;=2, ]
+attach(term_bachi)
+dfsel&lt;- data.frame(#ciudad,
+                   # Persona
+                   p02, # Sexo
+                   p03, # Edad
+                   p04, # Relacion de Parentesco
+                   p05a, # Seguro Social
+                   p06, # Estado civil
+                   p07, # Asiste a Clase
+                   p10a, # Nivel de instruccion
+                   p11,  # Sabe Leer y escribir
+                   p15)  #  Como se considera, Etnia</code></pre>
+</div>
+<div id="muestra-los-primeros-5-datos-se-visualiza-datos-faltantes"
+class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Muestra los primeros
+5 datos se visualiza datos faltantes</h2>
+<pre class="r"><code>head(dfsel,5)</code></pre>
+<pre><code>##   p02 p03 p04 p05a p06 p07 p10a p11 p15
+## 1  NA  NA  NA   NA  NA  NA   NA  NA  NA
+## 2  NA  NA  NA   NA  NA  NA   NA  NA  NA
+## 3  NA  NA  NA   NA  NA  NA   NA  NA  NA
+## 4  NA  NA  NA   NA  NA  NA   NA  NA  NA
+## 5  NA  NA  NA   NA  NA  NA   NA  NA  NA</code></pre>
+</div>
+<div id="eliminamos-valores-na" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Eliminamos Valores
+NA</h2>
+<pre class="r"><code>dfsel_a &lt;- dfsel[!is.na(dfsel$p10a),]
+head(dfsel_a,25)</code></pre>
+<pre><code>##     p02 p03 p04 p05a p06 p07 p10a p11 p15
+## 8     2  84   2   10   1   2    1   2   6
+## 9     2  57   2   10   1   2    1   2   6
+## 15    2  86   6   10   4   2    1   2   6
+## 16    2  87   6   10   4   2    1   2   6
+## 27    2  78   1   10   2   2    1   2   6
+## 29    2  78   1   10   2   2    1   2   6
+## 31    2  70   1   10   6   2    1   2   6
+## 32    2  68   1   10   6   2    1   2   6
+## 44    1   5   5   10  NA   2    1   2   6
+## 48    2  84   6   10   4   2    1   1   6
+## 59    2  84   1    1   4   2    2   1   6
+## 65    2  65   1    1   3   2    2   1   6
+## 79    1  67   7   10   6   2    1   2   6
+## 80    1  69   2   10   1   2    1   2   6
+## 81    1  71   1   10   1   2    1   2   1
+## 82    2  74   2   10   1   2    1   2   1
+## 83    2  26   5   10   6   2    1   2   1
+## 84    2  73   6   10   4   2    1   2   6
+## 85    2  88   6    1   4   2    1   2   6
+## 86    2  58   6   10   6   2    1   2   1
+## 113   2  62   1    1   3   2    1   2   6
+## 114   2  63   1    1   3   2    1   2   6
+## 127   1  34   3    2   6   2    1   1   6
+## 129   2  72   1   10   1   2    1   2   6
+## 130   2  69   1    3   3   2    1   2   6</code></pre>
+</div>
+<div
+id="filtramos-personas-mayores-o-igual-a-15-que-no-tienen-educacion"
+class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> Filtramos personas
+mayores o igual a 15 que no tienen educacion</h2>
+<pre class="r"><code>no_alfa &lt;- dfsel_a[dfsel_a$p03&gt;=15, ]</code></pre>
+</div>
+<div id="revision-de-datos" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> Revision de
+datos</h2>
+<pre class="r"><code>head(no_alfa)</code></pre>
+<pre><code>##    p02 p03 p04 p05a p06 p07 p10a p11 p15
+## 8    2  84   2   10   1   2    1   2   6
+## 9    2  57   2   10   1   2    1   2   6
+## 15   2  86   6   10   4   2    1   2   6
+## 16   2  87   6   10   4   2    1   2   6
+## 27   2  78   1   10   2   2    1   2   6
+## 29   2  78   1   10   2   2    1   2   6</code></pre>
+<pre class="r"><code>attach(no_alfa)</code></pre>
+<pre><code>## The following objects are masked from term_bachi:
+## 
+##     p02, p03, p04, p05a, p06, p07, p10a, p11, p15</code></pre>
+</div>
+<div id="revision-de-estadistica-descriptiva" class="section level2"
+number="1.8">
+<h2><span class="header-section-number">1.8</span> Revision de
+Estadistica descriptiva</h2>
+<pre class="r"><code>summary(no_alfa)</code></pre>
+<pre><code>##       p02             p03             p04             p05a       
+##  Min.   :1.000   Min.   :15.00   Min.   :1.000   Min.   : 1.000  
+##  1st Qu.:1.000   1st Qu.:55.00   1st Qu.:1.000   1st Qu.:10.000  
+##  Median :2.000   Median :68.00   Median :2.000   Median :10.000  
+##  Mean   :1.646   Mean   :65.79   Mean   :2.427   Mean   : 8.473  
+##  3rd Qu.:2.000   3rd Qu.:79.00   3rd Qu.:3.000   3rd Qu.:10.000  
+##  Max.   :2.000   Max.   :98.00   Max.   :9.000   Max.   :10.000  
+##       p06             p07         p10a            p11             p15       
+##  Min.   :1.000   Min.   :1   Min.   :1.000   Min.   :1.000   Min.   :1.000  
+##  1st Qu.:1.000   1st Qu.:2   1st Qu.:1.000   1st Qu.:2.000   1st Qu.:1.000  
+##  Median :4.000   Median :2   Median :1.000   Median :2.000   Median :6.000  
+##  Mean   :3.426   Mean   :2   Mean   :1.044   Mean   :1.944   Mean   :4.441  
+##  3rd Qu.:5.000   3rd Qu.:2   3rd Qu.:1.000   3rd Qu.:2.000   3rd Qu.:6.000  
+##  Max.   :6.000   Max.   :2   Max.   :2.000   Max.   :2.000   Max.   :8.000</code></pre>
+</div>
+<div id="conversion-de-las-variable-cualitativas-a-tipo-factor"
+class="section level2" number="1.9">
+<h2><span class="header-section-number">1.9</span> Conversion de las
+variable cualitativas a tipo factor</h2>
+<pre class="r"><code>no_alfa$p02&lt;-factor(p02, levels = c(1:2), labels = c(&quot;Hombre&quot;,&quot;Mujer&quot;))
+no_alfa$p03&lt;- as.numeric(no_alfa$p03)
+no_alfa$p04&lt;- factor(p04,levels = c(1:9), labels = c(&quot;Jefe&quot;,
+                                                     &quot;Cónyugue&quot;,
+                                                     &quot;Hijo&quot;,
+                                                     &quot;Yerno&quot;,
+                                                     &quot;Nieto&quot;,
+                                                     &quot;Padres&quot;,
+                                                     &quot;Otros Parientes&quot;,
+                                                     &quot;Domestico&quot;,
+                                                     &quot;Otros no parientes&quot;))
+no_alfa$p05a&lt;- factor(p05a, levels = c(1:10), labels = c(&quot;IESS/General&quot;,
+                                                       &quot;IESS/Voluntario&quot;,
+                                                       &quot;IESS/Campesino&quot;,
+                                                       &quot;ISSFA/ISSPOL&quot;,
+                                                       &quot;PRIVADO/hospitalización&quot;,
+                                                       &quot;PRIVADO/sin_hospitalización&quot;,
+                                                       &quot;AUS&quot;,
+                                                       &quot;Seguro Municipal&quot;,
+                                                       &quot;Seguro MSP&quot;,
+                                                       &quot;Ninguno&quot;))
+no_alfa$p06&lt;- factor(p06, levels = c(1:6), labels = c(&quot;Casado&quot;,
+                                                       &quot;Separado&quot;,
+                                                       &quot;Diverciado&quot;,
+                                                       &quot;Viudo&quot;,
+                                                       &quot;Union Libre&quot;,
+                                                       &quot;Soltero&quot;) )
+no_alfa$p07&lt;- factor(p07, levels = c(1:2), labels = c(&quot;SI&quot;,&quot;NO&quot;))
+no_alfa$p10a&lt;- factor(p10a, levels = c(1:6), labels = c(&quot;Ninguno&quot;,
+                                                        &quot;Centro Alfavetización&quot;,
+                                                        &quot;Jardin de Infantes&quot;,
+                                                        &quot;Primaria&quot;,
+                                                        &quot;Educación Básica&quot;,
+                                                        &quot;Secundaria&quot;))
+no_alfa$p11&lt;- factor(p11, levels = c(1:2), labels = c(&quot;SI&quot;,&quot;NO&quot;))
+no_alfa$p15&lt;- factor(p15, levels = c(1:8), labels = c(&quot;Indigena&quot;,
+                                                    &quot;Afroamericano&quot;,
+                                                    &quot;Negro&quot;,
+                                                    &quot;Mulato&quot;,
+                                                    &quot;Montuvio&quot;,
+                                                    &quot;Mestizo&quot;,
+                                                    &quot;Blanco&quot;,
+                                                    &quot;Otros&quot;))</code></pre>
+</div>
+<div id="verificación-de-los-datos-a-usarse-en-el-modelo"
+class="section level2" number="1.10">
+<h2><span class="header-section-number">1.10</span> Verificación de los
+datos a usarse en el modelo</h2>
+<pre class="r"><code>str(no_alfa)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    9047 obs. of  9 variables:
+##  $ p02 : Factor w/ 2 levels &quot;Hombre&quot;,&quot;Mujer&quot;: 2 2 2 2 2 2 2 2 2 2 ...
+##  $ p03 : num  84 57 86 87 78 78 70 68 84 84 ...
+##  $ p04 : Factor w/ 9 levels &quot;Jefe&quot;,&quot;Cónyugue&quot;,..: 2 2 6 6 1 1 1 1 6 1 ...
+##  $ p05a: Factor w/ 10 levels &quot;IESS/General&quot;,..: 10 10 10 10 10 10 10 10 10 1 ...
+##  $ p06 : Factor w/ 6 levels &quot;Casado&quot;,&quot;Separado&quot;,..: 1 1 4 4 2 2 6 6 4 4 ...
+##  $ p07 : Factor w/ 2 levels &quot;SI&quot;,&quot;NO&quot;: 2 2 2 2 2 2 2 2 2 2 ...
+##  $ p10a: Factor w/ 6 levels &quot;Ninguno&quot;,&quot;Centro Alfavetización&quot;,..: 1 1 1 1 1 1 1 1 1 2 ...
+##  $ p11 : Factor w/ 2 levels &quot;SI&quot;,&quot;NO&quot;: 2 2 2 2 2 2 2 2 1 1 ...
+##  $ p15 : Factor w/ 8 levels &quot;Indigena&quot;,&quot;Afroamericano&quot;,..: 6 6 6 6 6 6 6 6 6 6 ...</code></pre>
+</div>
+<div id="cambio-de-nombres-de-las-variables-para-mejor-entendimiento"
+class="section level2" number="1.11">
+<h2><span class="header-section-number">1.11</span> Cambio de nombres de
+las variables para mejor entendimiento</h2>
+<pre class="r"><code>names(no_alfa)&lt;-c(&quot;Sexo&quot;,&quot;Edad&quot;,&quot;Relacion_Familiar&quot;,&quot;Asegurado&quot;,&quot;Estado_Civil&quot;,&quot;Asiste_Clases&quot;,
+                  &quot;Nivel_Instruccion&quot;,&quot;Sabe_Leer&quot;, &quot;Etnia&quot;)</code></pre>
+</div>
+<div id="exportación-de-la-base-de-datos" class="section level2"
+number="1.12">
+<h2><span class="header-section-number">1.12</span> Exportación de la
+base de datos</h2>
+<pre class="r"><code>write.xlsx(no_alfa,&quot;trabajo_fin.xlsx&quot;)</code></pre>
+<p>Estructura de la base de datos, una vez realizada la limpieza de
+datos:</p>
+<table style="width:100%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="17%" />
+<col width="10%" />
+<col width="12%" />
+<col width="15%" />
+<col width="17%" />
+<col width="10%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sexo</th>
+<th>Edad</th>
+<th>Relación Familiar</th>
+<th>Asegurado</th>
+<th>Estado Civil</th>
+<th>Asiste a Clases</th>
+<th>Nivel Instrucción</th>
+<th>Sabe Leer</th>
+<th>Etnia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mujer</td>
+<td>84</td>
+<td>Cónyugue</td>
+<td>Ninguno</td>
+<td>Casado</td>
+<td>NO</td>
+<td>Ninguno</td>
+<td>NO</td>
+<td>Mestizo</td>
+</tr>
+<tr class="even">
+<td>Mujer</td>
+<td>57</td>
+<td>Cónyugue</td>
+<td>Ninguno</td>
+<td>Casado</td>
+<td>NO</td>
+<td>Ninguno</td>
+<td>NO</td>
+<td>Mestizo</td>
+</tr>
+<tr class="odd">
+<td>Mujer</td>
+<td>86</td>
+<td>Padres</td>
+<td>Ninguno</td>
+<td>Viudo</td>
+<td>NO</td>
+<td>Ninguno</td>
+<td>NO</td>
+<td>Mestizo</td>
+</tr>
+<tr class="even">
+<td>Mujer</td>
+<td>87</td>
+<td>Padres</td>
+<td>Ninguno</td>
+<td>Viudo</td>
+<td>NO</td>
+<td>Ninguno</td>
+<td>NO</td>
+<td>Mestizo</td>
+</tr>
+<tr class="odd">
+<td>Mujer</td>
+<td>78</td>
+<td>Jefe</td>
+<td>Ninguno</td>
+<td>Separado</td>
+<td>NO</td>
+<td>Ninguno</td>
+<td>NO</td>
+<td>Mestizo</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="resumen-de-las-variables-seleccionadas" class="section level2"
+number="1.13">
+<h2><span class="header-section-number">1.13</span> Resumen de las
+variables seleccionadas</h2>
+<pre class="r"><code>summary(no_alfa)</code></pre>
+<pre><code>##      Sexo           Edad                Relacion_Familiar
+##  Hombre:3200   Min.   :15.00   Jefe              :4133   
+##  Mujer :5847   1st Qu.:55.00   Cónyugue          :2485   
+##                Median :68.00   Padres            : 866   
+##                Mean   :65.79   Hijo              : 848   
+##                3rd Qu.:79.00   Otros Parientes   : 496   
+##                Max.   :98.00   Otros no parientes: 142   
+##                                (Other)           :  77   
+##                    Asegurado         Estado_Civil  Asiste_Clases
+##  Ninguno                :7227   Casado     :3051   SI:   4      
+##  IESS/Campesino         :1192   Separado   : 564   NO:9043      
+##  IESS/General           : 514   Diverciado : 129                
+##  IESS/Voluntario        :  85   Viudo      :2044                
+##  ISSFA/ISSPOL           :  24   Union Libre:1305                
+##  PRIVADO/hospitalización:   4   Soltero    :1954                
+##  (Other)                :   1                                   
+##              Nivel_Instruccion Sabe_Leer           Etnia     
+##  Ninguno              :8651    SI: 511   Mestizo      :5608  
+##  Centro Alfavetización: 396    NO:8536   Indigena     :2479  
+##  Jardin de Infantes   :   0              Montuvio     : 462  
+##  Primaria             :   0              Negro        : 221  
+##  Educación Básica     :   0              Afroamericano: 120  
+##  Secundaria           :   0              Mulato       :  88  
+##                                          (Other)      :  69</code></pre>
+</div>
+<div id="tabla-final-gráfica-de-interpretación-general"
+class="section level2" number="1.14">
+<h2><span class="header-section-number">1.14</span> Tabla final, gráfica
+de interpretación general</h2>
+<pre class="r"><code>ggpairs(no_alfa)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="Mod_Caso_analfab_fina_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+</div>
+<div id="gráficas-del-analfabetismo-en-general" class="section level1"
+number="2">
+<h1><span class="header-section-number">2</span> Gráficas del
+Analfabetismo en General</h1>
+<div id="graficas-por-sexo" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Graficas por
+Sexo</h2>
+<pre class="r"><code>ggplot(data = no_alfa, aes(x = Sexo, fill = Sabe_Leer)) +
+  geom_bar(position = &quot;fill&quot;) +
+  scale_fill_manual(values = c(&quot;NO&quot; = &quot;blue&quot;, &quot;SI&quot; = &quot;orange&quot;), name = &quot;Sabe Leer&quot;, labels = c(&quot;Analfabeto&quot;, &quot;Alfabetizado&quot;)) +
+  labs(title = &quot;Proporción de Analfabetismo por Sexo&quot;, x = &quot;Sexo&quot;, y = &quot;Proporción&quot;) +
+  theme_minimal(base_size = 15) +
+  theme(legend.position = &quot;top&quot;) +
+  coord_flip()</code></pre>
+<p><img src="Mod_Caso_analfab_fina_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+## Gráfica de Analfabetismo por Etnia</p>
+<pre class="r"><code>ggplot(data = no_alfa, aes(x = reorder(Etnia, -table(Sabe_Leer)[Etnia]), fill = Sabe_Leer)) +
+  geom_bar(position = &quot;fill&quot;) +
+  scale_fill_manual(values = c(&quot;NO&quot; = &quot;blue&quot;, &quot;SI&quot; = &quot;orange&quot;), name = &quot;Sabe Leer&quot;, labels = c(&quot;Analfabeto&quot;, &quot;Alfabetizado&quot;)) +
+  labs(title = &quot;Proporción de Analfabetismo por Etnia&quot;, x = &quot;Etnia&quot;, y = &quot;Proporción&quot;) +
+  theme_minimal(base_size = 15) +
+  theme(legend.position = &quot;top&quot;, axis.text.x = element_text(angle = 45, hjust = 1))</code></pre>
+<p><img src="Mod_Caso_analfab_fina_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+<div id="gráfica-de-analfabetismo-por-edad-cajas" class="section level2"
+number="2.2">
+<h2><span class="header-section-number">2.2</span> Gráfica de
+Analfabetismo por Edad (Cajas)</h2>
+<pre class="r"><code>ggplot(data = no_alfa, aes(x = Sabe_Leer, y = Edad, fill = Sabe_Leer)) +
+  geom_boxplot(alpha = 0.7) +
+  scale_fill_manual(values = c(&quot;NO&quot; = &quot;red&quot;, &quot;SI&quot; = &quot;green&quot;), name = &quot;Sabe Leer&quot;, labels = c(&quot;Analfabeto&quot;, &quot;Alfabetizado&quot;)) +
+  labs(title = &quot;Distribución de la Edad por Analfabetismo&quot;, x = &quot;Sabe Leer&quot;, y = &quot;Edad&quot;) +
+  theme_minimal(base_size = 15) +
+  theme(legend.position = &quot;none&quot;)</code></pre>
+<p><img src="Mod_Caso_analfab_fina_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+## Gráfica de Analfabetismo por Edad (Dispersión)</p>
+<pre class="r"><code>ggplot(data = no_alfa, aes(x = Edad, y = as.numeric(as.factor(Sabe_Leer)), color = Sabe_Leer)) +
+  geom_jitter(alpha = 0.5) +
+  scale_color_manual(values = c(&quot;NO&quot; = &quot;red&quot;, &quot;SI&quot; = &quot;green&quot;), name = &quot;Sabe Leer&quot;, labels = c(&quot;Analfabeto&quot;, &quot;Alfabetizado&quot;)) +
+  labs(title = &quot;Analfabetismo por Edad&quot;, x = &quot;Edad&quot;, y = &quot;Sabe Leer&quot;) +
+  scale_y_continuous(breaks = c(1, 2), labels = c(&quot;NO&quot;, &quot;SI&quot;)) +
+  theme_minimal(base_size = 15) +
+  theme(legend.position = &quot;top&quot;)</code></pre>
+<p><img src="Mod_Caso_analfab_fina_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+</div>
+</div>
+<div id="regresión-logistica" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Regresión
+Logistica</h1>
+<div id="modelo-de-regresión-logística" class="section level2"
+number="3.1">
+<h2><span class="header-section-number">3.1</span> Modelo de regresión
+logística</h2>
+<pre class="r"><code>modelo &lt;- glm(Sabe_Leer ~ Sexo+
+              Edad + Etnia +
+              Relacion_Familiar + 
+              Asegurado + Estado_Civil+
+              Asiste_Clases +
+              Nivel_Instruccion, 
+              data = no_alfa, family = binomial)</code></pre>
+<pre class="r"><code>summary(modelo)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = Sabe_Leer ~ Sexo + Edad + Etnia + Relacion_Familiar + 
+##     Asegurado + Estado_Civil + Asiste_Clases + Nivel_Instruccion, 
+##     family = binomial, data = no_alfa)
+## 
+## Coefficients:
+##                                          Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept)                             2.926e+00  1.256e+00   2.330 0.019820
+## SexoMujer                               2.485e-01  1.414e-01   1.757 0.078857
+## Edad                                    1.768e-02  4.216e-03   4.195 2.73e-05
+## EtniaAfroamericano                      3.938e-01  7.482e-01   0.526 0.598654
+## EtniaNegro                             -4.644e-01  4.048e-01  -1.147 0.251269
+## EtniaMulato                            -2.865e-01  6.389e-01  -0.448 0.653843
+## EtniaMontuvio                           3.945e-02  3.580e-01   0.110 0.912260
+## EtniaMestizo                           -8.873e-01  1.371e-01  -6.471 9.74e-11
+## EtniaBlanco                            -1.901e+00  4.217e-01  -4.507 6.59e-06
+## EtniaOtros                              1.277e+01  1.355e+03   0.009 0.992479
+## Relacion_FamiliarCónyugue               6.282e-01  1.855e-01   3.387 0.000707
+## Relacion_FamiliarHijo                   1.450e+00  3.268e-01   4.437 9.12e-06
+## Relacion_FamiliarYerno                 -7.129e-01  5.786e-01  -1.232 0.217918
+## Relacion_FamiliarNieto                  1.440e+01  3.373e+02   0.043 0.965942
+## Relacion_FamiliarPadres                 4.759e-02  2.001e-01   0.238 0.812064
+## Relacion_FamiliarOtros Parientes        1.564e+00  4.244e-01   3.686 0.000228
+## Relacion_FamiliarDomestico             -2.462e+00  1.494e+00  -1.648 0.099425
+## Relacion_FamiliarOtros no parientes     8.598e-01  5.462e-01   1.574 0.115424
+## AseguradoIESS/Voluntario                7.209e-02  4.344e-01   0.166 0.868187
+## AseguradoIESS/Campesino                 8.968e-01  2.159e-01   4.154 3.26e-05
+## AseguradoISSFA/ISSPOL                   1.371e+01  4.809e+02   0.029 0.977251
+## AseguradoPRIVADO/hospitalización        1.376e+01  1.183e+03   0.012 0.990721
+## AseguradoPRIVADO/sin_hospitalización    1.395e+01  2.400e+03   0.006 0.995362
+## AseguradoNinguno                        8.013e-01  1.723e-01   4.651 3.31e-06
+## Estado_CivilSeparado                    2.281e-01  2.392e-01   0.954 0.340269
+## Estado_CivilDiverciado                 -9.417e-02  3.623e-01  -0.260 0.794892
+## Estado_CivilViudo                       3.244e-01  1.863e-01   1.741 0.081711
+## Estado_CivilUnion Libre                 2.914e-01  1.740e-01   1.675 0.094028
+## Estado_CivilSoltero                     2.999e-01  2.300e-01   1.304 0.192335
+## Asiste_ClasesNO                        -1.507e+00  1.199e+00  -1.257 0.208613
+## Nivel_InstruccionCentro Alfavetización -3.597e+00  1.325e-01 -27.144  &lt; 2e-16
+##                                           
+## (Intercept)                            *  
+## SexoMujer                              .  
+## Edad                                   ***
+## EtniaAfroamericano                        
+## EtniaNegro                                
+## EtniaMulato                               
+## EtniaMontuvio                             
+## EtniaMestizo                           ***
+## EtniaBlanco                            ***
+## EtniaOtros                                
+## Relacion_FamiliarCónyugue              ***
+## Relacion_FamiliarHijo                  ***
+## Relacion_FamiliarYerno                    
+## Relacion_FamiliarNieto                    
+## Relacion_FamiliarPadres                   
+## Relacion_FamiliarOtros Parientes       ***
+## Relacion_FamiliarDomestico             .  
+## Relacion_FamiliarOtros no parientes       
+## AseguradoIESS/Voluntario                  
+## AseguradoIESS/Campesino                ***
+## AseguradoISSFA/ISSPOL                     
+## AseguradoPRIVADO/hospitalización          
+## AseguradoPRIVADO/sin_hospitalización      
+## AseguradoNinguno                       ***
+## Estado_CivilSeparado                      
+## Estado_CivilDiverciado                    
+## Estado_CivilViudo                      .  
+## Estado_CivilUnion Libre                .  
+## Estado_CivilSoltero                       
+## Asiste_ClasesNO                           
+## Nivel_InstruccionCentro Alfavetización ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 3929.6  on 9046  degrees of freedom
+## Residual deviance: 2947.8  on 9016  degrees of freedom
+## AIC: 3009.8
+## 
+## Number of Fisher Scoring iterations: 15</code></pre>
+</div>
+<div id="mejora-del-modelo-de-regresión-logística"
+class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Mejora del Modelo de
+Regresión Logística</h2>
+<p>El modelo inicial presenta algunas variables con coeficientes no
+significativos y otras con valores extremos o problemas de
+multicolinealidad. Para mejorar el modelo, obtamos por seguir los
+siguientes pasos:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Revisión de la Significancia de las Variables</strong>:
+Evaluar y eliminar las variables que no son estadísticamente
+significativas.</li>
+<li><strong>Revisión de Multicolinealidad</strong>: Verificar la
+presencia de multicolinealidad entre las variables independientes
+utilizando el factor de inflación de la varianza (VIF).</li>
+<li><strong>Transformación de Variables</strong>: Crear categorías
+nuevas o transformar variables existentes si es necesario.</li>
+<li><strong>Ajuste del Modelo</strong>: Ajustar el modelo con las
+variables revisadas.</li>
+</ol>
+</div>
+<div id="revisión-de-la-significancia-de-las-variables"
+class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> 1. Revisión de la
+Significancia de las Variables</h2>
+<p>Eliminamos las variables no significativas (p &gt; 0.05) del
+modelo.</p>
+<div
+id="ajustar-el-modelo-de-regresión-logística-sin-las-variables-no-significativas"
+class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Ajustar el modelo
+de regresión logística sin las variables no significativas</h3>
+<pre class="r"><code>modelo_mejorado &lt;- glm(Sabe_Leer ~ Sexo + Edad + Etnia + Relacion_Familiar+Asegurado+Estado_Civil+Nivel_Instruccion, 
+                       data = no_alfa, family = binomial)</code></pre>
+</div>
+<div id="resumen-del-modelo-mejorado" class="section level3"
+number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Resumen del modelo
+mejorado</h3>
+<pre class="r"><code>summary(modelo_mejorado)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = Sabe_Leer ~ Sexo + Edad + Etnia + Relacion_Familiar + 
+##     Asegurado + Estado_Civil + Nivel_Instruccion, family = binomial, 
+##     data = no_alfa)
+## 
+## Coefficients:
+##                                          Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept)                             1.410e+00  3.553e-01   3.968 7.25e-05
+## SexoMujer                               2.476e-01  1.413e-01   1.752 0.079768
+## Edad                                    1.792e-02  4.212e-03   4.254 2.10e-05
+## EtniaAfroamericano                      3.888e-01  7.479e-01   0.520 0.603139
+## EtniaNegro                             -4.686e-01  4.047e-01  -1.158 0.246827
+## EtniaMulato                            -2.920e-01  6.384e-01  -0.457 0.647352
+## EtniaMontuvio                           3.511e-02  3.579e-01   0.098 0.921833
+## EtniaMestizo                           -8.893e-01  1.370e-01  -6.491 8.55e-11
+## EtniaBlanco                            -1.905e+00  4.214e-01  -4.522 6.13e-06
+## EtniaOtros                              1.277e+01  1.354e+03   0.009 0.992480
+## Relacion_FamiliarCónyugue               6.241e-01  1.853e-01   3.369 0.000754
+## Relacion_FamiliarHijo                   1.446e+00  3.270e-01   4.421 9.83e-06
+## Relacion_FamiliarYerno                 -7.068e-01  5.785e-01  -1.222 0.221786
+## Relacion_FamiliarNieto                  1.440e+01  3.373e+02   0.043 0.965942
+## Relacion_FamiliarPadres                 4.040e-02  2.000e-01   0.202 0.839899
+## Relacion_FamiliarOtros Parientes        1.556e+00  4.245e-01   3.665 0.000247
+## Relacion_FamiliarDomestico             -2.472e+00  1.494e+00  -1.655 0.097947
+## Relacion_FamiliarOtros no parientes     8.527e-01  5.460e-01   1.562 0.118377
+## AseguradoIESS/Voluntario                6.325e-02  4.336e-01   0.146 0.884024
+## AseguradoIESS/Campesino                 8.847e-01  2.157e-01   4.101 4.11e-05
+## AseguradoISSFA/ISSPOL                   1.371e+01  4.809e+02   0.029 0.977258
+## AseguradoPRIVADO/hospitalización        1.376e+01  1.183e+03   0.012 0.990722
+## AseguradoPRIVADO/sin_hospitalización    1.395e+01  2.400e+03   0.006 0.995362
+## AseguradoNinguno                        7.955e-01  1.725e-01   4.610 4.02e-06
+## Estado_CivilSeparado                    2.418e-01  2.394e-01   1.010 0.312562
+## Estado_CivilDiverciado                 -9.644e-02  3.616e-01  -0.267 0.789719
+## Estado_CivilViudo                       3.244e-01  1.861e-01   1.743 0.081273
+## Estado_CivilUnion Libre                 2.946e-01  1.739e-01   1.694 0.090228
+## Estado_CivilSoltero                     3.122e-01  2.303e-01   1.356 0.175177
+## Nivel_InstruccionCentro Alfavetización -3.580e+00  1.318e-01 -27.165  &lt; 2e-16
+##                                           
+## (Intercept)                            ***
+## SexoMujer                              .  
+## Edad                                   ***
+## EtniaAfroamericano                        
+## EtniaNegro                                
+## EtniaMulato                               
+## EtniaMontuvio                             
+## EtniaMestizo                           ***
+## EtniaBlanco                            ***
+## EtniaOtros                                
+## Relacion_FamiliarCónyugue              ***
+## Relacion_FamiliarHijo                  ***
+## Relacion_FamiliarYerno                    
+## Relacion_FamiliarNieto                    
+## Relacion_FamiliarPadres                   
+## Relacion_FamiliarOtros Parientes       ***
+## Relacion_FamiliarDomestico             .  
+## Relacion_FamiliarOtros no parientes       
+## AseguradoIESS/Voluntario                  
+## AseguradoIESS/Campesino                ***
+## AseguradoISSFA/ISSPOL                     
+## AseguradoPRIVADO/hospitalización          
+## AseguradoPRIVADO/sin_hospitalización      
+## AseguradoNinguno                       ***
+## Estado_CivilSeparado                      
+## Estado_CivilDiverciado                    
+## Estado_CivilViudo                      .  
+## Estado_CivilUnion Libre                .  
+## Estado_CivilSoltero                       
+## Nivel_InstruccionCentro Alfavetización ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 3929.6  on 9046  degrees of freedom
+## Residual deviance: 2949.6  on 9017  degrees of freedom
+## AIC: 3009.6
+## 
+## Number of Fisher Scoring iterations: 15</code></pre>
+</div>
+</div>
+<div id="revisión-de-multicolinealidad" class="section level2"
+number="3.4">
+<h2><span class="header-section-number">3.4</span> 2. Revisión de
+Multicolinealidad</h2>
+<p>Usamos la función <code>vif</code> del paquete <code>car</code> para
+verificar la multicolinealidad.</p>
+<p>Instalar y cargar el paquete ‘car’ para calcular VIF</p>
+<pre><code>install.packages(&quot;car&quot;)
+library(car)</code></pre>
+<p>Calcular VIF para las variables en el modelo mejorado</p>
+<pre class="r"><code>vif(modelo_mejorado)</code></pre>
+<pre><code>##                       GVIF Df GVIF^(1/(2*Df))
+## Sexo              1.794597  1        1.339626
+## Edad              1.724869  1        1.313343
+## Etnia             1.288978  7        1.018298
+## Relacion_Familiar 5.589871  8        1.113557
+## Asegurado         1.113701  6        1.009014
+## Estado_Civil      4.662651  5        1.166442
+## Nivel_Instruccion 1.177726  1        1.085231</code></pre>
+</div>
+<div id="eliminamos-variables-poco-interpretativas-para-el-modelo"
+class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> 3. Eliminamos
+variables poco interpretativas para el modelo</h2>
+<p>Eliminamos la variable “Relación Familiar”</p>
+</div>
+<div id="ajuste-del-modelo-con-variables-revisadas"
+class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> 4. Ajuste del Modelo
+con Variables Revisadas</h2>
+<pre class="r"><code>modelo_mejorado &lt;- glm(Sabe_Leer ~ Sexo + Edad + Etnia +Asegurado+Estado_Civil+Nivel_Instruccion, 
+                       data = no_alfa, family = binomial)</code></pre>
+</div>
+<div id="resumen-del-modelo-final" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Resumen del modelo
+final</h2>
+<pre class="r"><code>summary(modelo_mejorado)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = Sabe_Leer ~ Sexo + Edad + Etnia + Asegurado + Estado_Civil + 
+##     Nivel_Instruccion, family = binomial, data = no_alfa)
+## 
+## Coefficients:
+##                                          Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept)                             2.083e+00  3.264e-01   6.382 1.75e-10
+## SexoMujer                               4.509e-01  1.093e-01   4.124 3.72e-05
+## Edad                                    9.636e-03  3.726e-03   2.586  0.00971
+## EtniaAfroamericano                      3.390e-01  7.438e-01   0.456  0.64855
+## EtniaNegro                             -4.852e-01  4.046e-01  -1.199  0.23046
+## EtniaMulato                            -2.952e-01  6.293e-01  -0.469  0.63898
+## EtniaMontuvio                           1.093e-01  3.584e-01   0.305  0.76031
+## EtniaMestizo                           -8.507e-01  1.369e-01  -6.215 5.12e-10
+## EtniaBlanco                            -1.833e+00  4.142e-01  -4.426 9.62e-06
+## EtniaOtros                              1.161e+01  8.314e+02   0.014  0.98885
+## AseguradoIESS/Voluntario                7.011e-02  4.252e-01   0.165  0.86903
+## AseguradoIESS/Campesino                 9.536e-01  2.149e-01   4.437 9.11e-06
+## AseguradoISSFA/ISSPOL                   1.297e+01  2.938e+02   0.044  0.96479
+## AseguradoPRIVADO/hospitalización        1.295e+01  7.263e+02   0.018  0.98577
+## AseguradoPRIVADO/sin_hospitalización    1.341e+01  1.455e+03   0.009  0.99265
+## AseguradoNinguno                        8.766e-01  1.712e-01   5.121 3.04e-07
+## Estado_CivilSeparado                   -5.951e-02  2.157e-01  -0.276  0.78267
+## Estado_CivilDiverciado                 -4.513e-01  3.402e-01  -1.327  0.18461
+## Estado_CivilViudo                       8.430e-02  1.490e-01   0.566  0.57142
+## Estado_CivilUnion Libre                 1.576e-01  1.715e-01   0.919  0.35807
+## Estado_CivilSoltero                     7.372e-01  1.789e-01   4.120 3.79e-05
+## Nivel_InstruccionCentro Alfavetización -3.616e+00  1.302e-01 -27.770  &lt; 2e-16
+##                                           
+## (Intercept)                            ***
+## SexoMujer                              ***
+## Edad                                   ** 
+## EtniaAfroamericano                        
+## EtniaNegro                                
+## EtniaMulato                               
+## EtniaMontuvio                             
+## EtniaMestizo                           ***
+## EtniaBlanco                            ***
+## EtniaOtros                                
+## AseguradoIESS/Voluntario                  
+## AseguradoIESS/Campesino                ***
+## AseguradoISSFA/ISSPOL                     
+## AseguradoPRIVADO/hospitalización          
+## AseguradoPRIVADO/sin_hospitalización      
+## AseguradoNinguno                       ***
+## Estado_CivilSeparado                      
+## Estado_CivilDiverciado                    
+## Estado_CivilViudo                         
+## Estado_CivilUnion Libre                   
+## Estado_CivilSoltero                    ***
+## Nivel_InstruccionCentro Alfavetización ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 3929.6  on 9046  degrees of freedom
+## Residual deviance: 3002.8  on 9025  degrees of freedom
+## AIC: 3046.8
+## 
+## Number of Fisher Scoring iterations: 14</code></pre>
+<pre class="r"><code>vif(modelo_mejorado)</code></pre>
+<pre><code>##                       GVIF Df GVIF^(1/(2*Df))
+## Sexo              1.088340  1        1.043235
+## Edad              1.482182  1        1.217449
+## Etnia             1.275799  7        1.017550
+## Asegurado         1.101100  6        1.008058
+## Estado_Civil      1.831164  5        1.062362
+## Nivel_Instruccion 1.167586  1        1.080549</code></pre>
+<p><strong>Prueba Vif</strong> del modelo mejorado, podemos notar como
+sus valores mejoran una vez realizado la eliminación de la variable poco
+explicativa.</p>
+<pre class="r"><code>vif(modelo_mejorado)</code></pre>
+<pre><code>##                       GVIF Df GVIF^(1/(2*Df))
+## Sexo              1.088340  1        1.043235
+## Edad              1.482182  1        1.217449
+## Etnia             1.275799  7        1.017550
+## Asegurado         1.101100  6        1.008058
+## Estado_Civil      1.831164  5        1.062362
+## Nivel_Instruccion 1.167586  1        1.080549</code></pre>
+</div>
+</div>
+<div id="interpretación-de-resultados-del-modelo-mejorado"
+class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Interpretación de
+Resultados del Modelo Mejorado</h1>
+<ul>
+<li><strong>Coeficientes del Modelo</strong>: Interpretar los
+coeficientes significativos en términos de odds ratios.</li>
+<li><strong>Significancia Estadística</strong>: Validar las variables
+que resultan estadísticamente significativas después de la mejora.</li>
+<li><strong>Evaluación del Modelo</strong>: Usar métricas como AIC, BIC
+y la curva ROC para evaluar el rendimiento del modelo.</li>
+</ul>
+<div id="creación-de-gráficas-para-la-interpretación"
+class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Creación de Gráficas
+para la Interpretación</h2>
+<div id="gráfico-de-los-efectos-predictivos" class="section level3"
+number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Gráfico de los
+efectos predictivos</h3>
+<pre class="r"><code>plot(allEffects(modelo_mejorado))</code></pre>
+<p><img src="Mod_Caso_analfab_fina_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+</div>
+<div id="curva-roc" class="section level3" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Curva ROC</h3>
+<pre class="r"><code>roc_curve &lt;- roc(no_alfa$Sabe_Leer, fitted(modelo_mejorado))</code></pre>
+<pre><code>## Setting levels: control = SI, case = NO</code></pre>
+<pre><code>## Setting direction: controls &lt; cases</code></pre>
+<pre class="r"><code>plot(roc_curve, col = &quot;blue&quot;)</code></pre>
+<p><img src="Mod_Caso_analfab_fina_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+</div>
+</div>
+<div id="planteamiento-de-la-ecuación-de-regresión-logística"
+class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Planteamiento de la
+Ecuación de Regresión Logística</h2>
+<p>La ecuación de regresión logística para predecir la probabilidad de
+que una persona sepa leer y escribir (<span class="math inline">\(P(Y =
+1)\)</span>) se basa en los coeficientes estimados del modelo:</p>
+<p><span class="math display">\[ \log\left(\frac{P(Y=1)}{1 -
+P(Y=1)}\right) = \beta_0 + \beta_1 \text{Sexo} + \beta_2 \text{Edad} +
+\beta_3 \text{Etnia} + \beta_4 \text{Asegurado} + \beta_5 \text{Estado
+Civil} + \beta_6 \text{Nivel Instrucción} \]</span></p>
+<p>Usando los coeficientes del modelo mejorado, la ecuación es:</p>
+<p><span class="math display">\[ \log\left(\frac{P(Y=1)}{1 -
+P(Y=1)}\right) = 2.083 + 0.451 \cdot \text{SexoMujer} + 0.0096 \cdot
+\text{Edad} + \beta_{\text{Etnia}} + \beta_{\text{Asegurado}} +
+\beta_{\text{Estado Civil}} + \beta_{\text{Nivel Instrucción}}
+\]</span></p>
+<p>Donde: - <span class="math inline">\(\beta_{\text{Etnia}} = 0.339
+\cdot \text{EtniaAfroamericano} - 0.485 \cdot \text{EtniaNegro} - 0.295
+\cdot \text{EtniaMulato} + 0.109 \cdot \text{EtniaMontuvio} - 0.851
+\cdot \text{EtniaMestizo} - 1.833 \cdot \text{EtniaBlanco} + 11.61 \cdot
+\text{EtniaOtros}\)</span> - <span
+class="math inline">\(\beta_{\text{Asegurado}} = 0.070 \cdot
+\text{IESS/Voluntario} + 0.954 \cdot \text{IESS/Campesino} + 12.97 \cdot
+\text{ISSFA/ISSPOL} + 12.95 \cdot \text{PRIVADO/hospitalización} + 13.41
+\cdot \text{PRIVADO/sin_hospitalización} + 0.877 \cdot
+\text{Ninguno}\)</span> - <span
+class="math inline">\(\beta_{\text{Estado Civil}} = -0.0595 \cdot
+\text{Separado} - 0.451 \cdot \text{Diverciado} + 0.084 \cdot
+\text{Viudo} + 0.157 \cdot \text{Union Libre} + 0.737 \cdot
+\text{Soltero}\)</span> - <span class="math inline">\(\beta_{\text{Nivel
+Instrucción}} = -3.616 \cdot \text{Centro Alfavetización}\)</span></p>
+</div>
+<div id="análisis-de-residuales-del-modelo" class="section level2"
+number="4.3">
+<h2><span class="header-section-number">4.3</span> Análisis de
+Residuales del Modelo</h2>
+<p>Para realizar el análisis de residuales en R, podemos seguir los
+siguientes pasos:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Residuos de Pearson y Deviance</strong>: Evaluar los
+residuos para detectar patrones inusuales.</li>
+</ol>
+<p>Cálculo de los residuos de Pearson y Deviance</p>
+<pre class="r"><code>residuos_pearson &lt;- residuals(modelo_mejorado, type = &quot;pearson&quot;)
+residuos_deviance &lt;- residuals(modelo_mejorado, type = &quot;deviance&quot;)</code></pre>
+</div>
+<div id="gráficos-de-los-residuos" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Gráficos de los
+residuos</h2>
+<pre class="r"><code>par(mfrow = c(2, 2))</code></pre>
+<p>Histograma de residuos de Pearson</p>
+<pre class="r"><code>hist(residuos_pearson, main = &quot;Histograma de Residuos de Pearson&quot;, xlab = &quot;Residuos de Pearson&quot;, col = &quot;skyblue&quot;, border = &quot;white&quot;)</code></pre>
+<p><img src="Mod_Caso_analfab_fina_files/figure-html/unnamed-chunk-30-1.png" width="672" />
+Histograma de residuos de Deviance</p>
+<pre class="r"><code>hist(residuos_deviance, main = &quot;Histograma de Residuos de Deviance&quot;, xlab = &quot;Residuos de Deviance&quot;, col = &quot;lightgreen&quot;, border = &quot;white&quot;)</code></pre>
+<p><img src="Mod_Caso_analfab_fina_files/figure-html/unnamed-chunk-31-1.png" width="672" />
+Residuos de Pearson vs Valores Ajustados</p>
+<pre class="r"><code>plot(fitted(modelo_mejorado), residuos_pearson, main = &quot;Residuos de Pearson vs Valores Ajustados&quot;, xlab = &quot;Valores Ajustados&quot;, ylab = &quot;Residuos de Pearson&quot;, pch = 20, col = &quot;blue&quot;)</code></pre>
+<p><img src="Mod_Caso_analfab_fina_files/figure-html/unnamed-chunk-32-1.png" width="672" />
+Residuos de Deviance vs Valores Ajustados</p>
+<pre class="r"><code>plot(fitted(modelo_mejorado), residuos_deviance, main = &quot;Residuos de Deviance vs Valores Ajustados&quot;, xlab = &quot;Valores Ajustados&quot;, ylab = &quot;Residuos de Deviance&quot;, pch = 20, col = &quot;green&quot;)</code></pre>
+<p><img src="Mod_Caso_analfab_fina_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Identificación de Puntos Atípicos</strong>: Usar la
+distancia de Cook para identificar puntos de influencia.</li>
+</ol>
+<p>Cálculo de la distancia de Cook</p>
+<pre class="r"><code>cook_distance &lt;- cooks.distance(modelo_mejorado)</code></pre>
+<p>Gráfico de la distancia de Cook</p>
+<pre class="r"><code>plot(cook_distance, type = &quot;h&quot;, main = &quot;Distancia de Cook&quot;, xlab = &quot;Observación&quot;, ylab = &quot;Distancia de Cook&quot;, col = &quot;red&quot;)
+abline(h = 4/(nrow(no_alfa) - length(coef(modelo_mejorado))), col = &quot;blue&quot;, lty = 2)</code></pre>
+<p><img src="Mod_Caso_analfab_fina_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+</div>
+</div>
+<div id="analisis-de-resultados-obtenidos" class="section level1"
+number="5">
+<h1><span class="header-section-number">5</span> Analisis de Resultados
+Obtenidos</h1>
+<div id="coeficientes-del-modelo" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Coeficientes del
+Modelo</h2>
+<ul>
+<li><strong>(Intercepto)</strong>: El intercepto de <span
+class="math inline">\(2.083\)</span> indica el logit de la probabilidad
+de saber leer y escribir cuando todas las variables independientes son
+cero.</li>
+<li><strong>Sexo (Mujer)</strong>: Un coeficiente de <span
+class="math inline">\(0.451\)</span> indica que ser mujer aumenta el
+logit de la probabilidad de saber leer y escribir en <span
+class="math inline">\(0.451\)</span> en comparación con ser hombre.</li>
+<li><strong>Edad</strong>: Un coeficiente de <span
+class="math inline">\(0.0096\)</span> sugiere que por cada año adicional
+de edad, el logit de la probabilidad de saber leer y escribir aumenta en
+<span class="math inline">\(0.0096\)</span>.</li>
+<li><strong>Etnia</strong>: Las distintas categorías de etnia muestran
+diversos efectos en la probabilidad de saber leer y escribir:
+<ul>
+<li><strong>Afroamericano</strong>: No significativo.</li>
+<li><strong>Negro</strong>: No significativo.</li>
+<li><strong>Mulato</strong>: No significativo.</li>
+<li><strong>Montuvio</strong>: No significativo.</li>
+<li><strong>Mestizo</strong>: Un coeficiente de <span
+class="math inline">\(-0.8507\)</span> indica una disminución
+significativa en el logit de la probabilidad de saber leer y
+escribir.</li>
+<li><strong>Blanco</strong>: Un coeficiente de <span
+class="math inline">\(-1.833\)</span> indica una disminución
+significativa en el logit de la probabilidad de saber leer y
+escribir.</li>
+<li><strong>Otros</strong>: No significativo.</li>
+</ul></li>
+<li><strong>Asegurado</strong>:
+<ul>
+<li><strong>IESS/Campesino</strong>: Un coeficiente de <span
+class="math inline">\(0.9536\)</span> indica un aumento significativo en
+el logit de la probabilidad de saber leer y escribir.</li>
+<li><strong>Ninguno</strong>: Un coeficiente de <span
+class="math inline">\(0.8766\)</span> indica un aumento significativo en
+el logit de la probabilidad de saber leer y escribir.</li>
+</ul></li>
+<li><strong>Estado Civil</strong>: Ninguna de las categorías del estado
+civil resulta significativa en este modelo.</li>
+<li><strong>Nivel de Instrucción (Centro de Alfabetización)</strong>: Un
+coeficiente de <span class="math inline">\(-3.616\)</span> sugiere una
+disminución significativa en el logit de la probabilidad de saber leer y
+escribir, lo cual puede indicar que las personas que asisten a centros
+de alfabetización tienen una mayor probabilidad de haber sido
+inicialmente analfabetas.</li>
+</ul>
+</div>
+<div id="significación-estadística" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Significación
+Estadística</h2>
+<ul>
+<li>Variables con <span class="math inline">\(p &lt; 0.05\)</span> son
+consideradas estadísticamente significativas y tienen un impacto
+considerable en el modelo. En este caso, las variables significativas
+incluyen:
+<ul>
+<li><strong>Sexo (Mujer)</strong></li>
+<li><strong>Edad</strong></li>
+<li><strong>Etnia (Mestizo, Blanco)</strong></li>
+<li><strong>Asegurado (IESS/Campesino, Ninguno)</strong></li>
+<li><strong>Estado Civil (Soltero)</strong></li>
+<li><strong>Nivel de Instrucción (Centro de
+Alfabetización)</strong></li>
+</ul></li>
+</ul>
+</div>
+<div id="evaluación-del-modelo" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Evaluación del
+Modelo</h2>
+<ul>
+<li><strong>Null deviance</strong>: <span
+class="math inline">\(3929.6\)</span> con <span
+class="math inline">\(9046\)</span> grados de libertad.</li>
+<li><strong>Residual deviance</strong>: <span
+class="math inline">\(3002.8\)</span> con <span
+class="math inline">\(9025\)</span> grados de libertad.</li>
+<li><strong>AIC</strong>: <span
+class="math inline">\(3046.8\)</span></li>
+</ul>
+<p>Un menor valor de deviance residual y AIC indica un mejor ajuste del
+modelo. La reducción en la deviance residual de <span
+class="math inline">\(3929.6\)</span> a <span
+class="math inline">\(3002.8\)</span> sugiere que el modelo tiene un
+buen ajuste.</p>
+<p>El modelo de regresión logística ajustado mostró una reducción
+significativa en la deviance residual y un AIC aceptable, indicando un
+buen ajuste. Sin embargo, es importante continuar evaluando la capacidad
+predictiva del modelo utilizando un conjunto de datos de validación.</p>
+</div>
+<div id="sobre-los-residuales" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Sobre los
+Residuales</h2>
+<p>El análisis de residuales no mostró patrones inusuales
+significativos, sugiriendo que el modelo es adecuado. Sin embargo,
+algunos puntos de influencia identificados por la distancia de Cook
+indican la necesidad de un análisis más profundo para verificar la
+robustez del modelo.</p>
+</div>
+</div>
+<div id="conclusiones" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Conclusiones</h1>
+<ul>
+<li><strong>Sexo</strong>: Las mujeres tienen una mayor probabilidad de
+saber leer y escribir en comparación con los hombres.</li>
+<li><strong>Edad</strong>: La probabilidad de saber leer y escribir
+aumenta ligeramente con la edad.</li>
+<li><strong>Etnia</strong>: Las personas identificadas como mestizas o
+blancas tienen una menor probabilidad de saber leer y escribir en
+comparación con otras etnias.</li>
+<li><strong>Asegurado</strong>: Las personas aseguradas con
+IESS/Campesino o sin seguro tienen una mayor probabilidad de saber leer
+y escribir.</li>
+<li><strong>Estado Civil</strong>: Las personas solteras tienen una
+mayor probabilidad de saber leer y escribir.</li>
+<li><strong>Nivel de Instrucción</strong>: Asistir a un centro de
+alfabetización está asociado negativamente con la probabilidad de saber
+leer y escribir, lo que refleja que estos centros atienden
+principalmente a personas que inicialmente son analfabetas.</li>
+</ul>
+<div id="recomendaciones" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Recomendaciones</h2>
+<p>Para mejorar aún más el análisis, se podrían considerar en estudios
+futuros los siguientes pasos:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Validación del Modelo</strong>: Utilizar un conjunto de
+datos de validación para evaluar la capacidad predictiva del modelo,
+considerar otros años para ver como se comporta el modelo.</li>
+<li><strong>Interacción con otras Variables</strong>: Considerar la
+inclusión de otras variables que pueden incidir directamente sobre la
+variable de estudio.</li>
+</ol>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+{% extends "core/index.html" %}
+{% load static %} 
+{% block body %}
+<link rel="stylesheet" href="{% static 'css/boletines.css' %}">
+<div class="boletin-container">
+    <h1 class="boletin-title">Revisa nuestros boletines</h1>
+    {% for fecha, boletines in boletines_agrupados %}
+    <div class="fecha-grupo">
+        <h2 class="fecha-titulo" onclick="toggleBoletines('{{ fecha|date:'Ymd' }}')">
+            {{ fecha|date:"l, j \\d\\e F \\d\\e Y" }}
+            <span class="toggle-icon">+</span>
+        </h2>
+        <div id="boletines-{{ fecha|date:'Ymd' }}" class="boletin-grid" style="display: none;">
+            {% for boletin in boletines %}
+                <div class="boletin-item">
+                    <a href="{{ boletin.enlace }}" target="_blank" class="boletin-link" onclick="event.preventDefault(); openPdfModal('{{ boletin.enlace }}', '{{ boletin.titulo }}')">
+                        <img src="{{ boletin.imagen.url }}" alt="{{ boletin.titulo }}" class="boletin-image">
+                    </a>
+                    
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% empty %}
+        <p>No hay boletines disponibles.</p>
+    {% endfor %}
+    
+    {% if is_paginated %}
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">&laquo; Anterior</a>
+        {% endif %}
+        
+        <span class="current-page">{{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+        
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Siguiente &raquo;</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+<!-- Modal para visualizar PDF -->
+    <div id="pdfModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePdfModal()">&times;</span>
+            <iframe id="pdfViewer" src=""  width="90%" height="600" ></iframe>
+        </div>
+    </div>
+{% endblock body %}
+
+
+
+{% block info_section %}
+{% endblock info_section %}
+
+{% block footer %}
+{% endblock footer %}
+{% block extra_js %}
+<script>
+function openPdfModal(pdfUrl, title) {
+    var modal = document.getElementById("pdfModal");
+    var pdfViewer = document.getElementById("pdfViewer");
+    pdfViewer.src = pdfUrl;
+    modal.style.display = "block";
+}
+
+function closePdfModal() {
+    var modal = document.getElementById("pdfModal");
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    var modal = document.getElementById("pdfModal");
+    if (event.target == modal) {
+        closePdfModal();
+    }
+}
+
+function toggleBoletines(fechaId) {
+    var boletinesDiv = document.getElementById('boletines-' + fechaId);
+    var fechaTitulo = boletinesDiv.previousElementSibling;
+    var icon = fechaTitulo.querySelector('.toggle-icon');
+
+    if (boletinesDiv.style.display === "none") {
+        boletinesDiv.style.display = "block";
+        icon.textContent = "-";
+        fechaTitulo.classList.add('open');
+    } else {
+        boletinesDiv.style.display = "none";
+        icon.textContent = "+";
+        fechaTitulo.classList.remove('open');
+    }
+}
+</script>
+{% endblock extra_js %}
+
+

@@ -216,8 +216,8 @@ a:focus {
 
 .container-all {
   position: relative;
-  max-width: 95%;
-  width: 95%;
+  max-width: 100%;
+  width: 1000%;
   margin-bottom: 50px;
   border-radius: 2%;
   overflow: hidden;
@@ -263,9 +263,9 @@ input[type="radio"]:nth-of-type(3):checked~.slider .item-slider:nth-of-type(3) {
 .slider img {
   max-width: 100%;
   /* Asegura que la imagen no exceda el ancho del contenedor */
-  max-height: 100%;
+  max-height: 400px;
   height: auto;
-  /* Mantiene la relación de aspecto original de la imagen */
+  object-fit: cover;
 }
 
 .pagination {
@@ -411,40 +411,8 @@ input[id="3"]:checked~.pagination .pagination-item[for="3"] {
           align-items: center;
 }
 
-.slider_section .slider_nav-box .custom_carousel-control {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
 
-.slider_section .carousel-control-prev,
-.slider_section .carousel-control-next {
-  position: unset;
-  width: 50px;
-  height: 50px;
-  opacity: 1;
-  background-repeat: no-repeat;
-  background-size: 20px;
-  background-position: center;
-}
 
-.slider_section .carousel-control-prev {
-  left: 2%;
-  background-image: url(../images/left-arrow-black.png);
-}
-
-.slider_section .carousel-control-prev:hover {
-  background-image: url(../images/left-arrow.png);
-}
-
-.slider_section .carousel-control-next {
-  right: 2%;
-  background-image: url(../images/right-arrow-black.png);
-}
-
-.slider_section .carousel-control-next:hover {
-  background-image: url(../images/right-arrow.png);
-}
 
 /* end slider section */
 
@@ -479,11 +447,7 @@ input[id="3"]:checked~.pagination .pagination-item[for="3"] {
 
 
 
-.carrusell1 {
-  width: 150%;
-  max-width: 400%;
-  height: 200%;;
-}
+
 
 
 .service_section {
@@ -988,8 +952,28 @@ input[id="3"]:checked~.pagination .pagination-item[for="3"] {
 #search-input {
   margin-top: 20px;
   margin-left: -22px;
+  margin-bottom: 20px;
   
 }
+
+.admin-link {
+  text-decoration: none;
+  color: #fffefe;
+  margin-left: -18px;
+  font-weight: bold;
+  
+}
+.admin-link:hover {
+  color: #ce621af5;
+  /* Color de fondo al pasar el mouse */
+}
+
+.admin-link i {
+  margin-left: 5px;
+  font-size: 20px;
+    
+}
+
 
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */

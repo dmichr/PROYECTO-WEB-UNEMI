@@ -23,14 +23,14 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),  # URL raíz
+    path('boletines/', include('foro.urls')),
     path('about.html/', about, name='about'),
     path('service.html/', service, name='service'),
     path('contact.html/', contact, name='contact'),
     path('contact/success/', contact_success, name='contact_success'),
-    path('login.html/', register, name='register'),
-    path('login.html/', login, name='login'),
+    path('', include('user.urls')),
     path('dashboard.html/', dashboard, name='dashboard'),
-    path('accounts/',include('django.contrib.auth.urls')),
+    
     path('publicacion/<int:id>/', detalle_publicacion, name='detalle_publicacion'),
     path('publicaciones/', lista_publicaciones, name='lista_publicaciones'),
    

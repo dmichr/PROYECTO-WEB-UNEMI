@@ -1,17 +1,17 @@
 .login_logo {
-    max-width: 20px;
+    max-width: 100%;
     /* Ajuste este valor según el tamaño deseado */
     height: auto;
     /* Mantiene la proporción de la imagen */
 }
 
 .login_logo img {
-    max-width: 100%;
+    max-width: 200px;
     /* Esto asegura que la imagen no sea más grande que su contenedor */
-    height: auto;
+    height:auto;
 }
 
-/* Si necesita ajustar el tamaño en la página de login específicamente */
+
 .login-box .login-logo img {
     max-width: 150px;
     /* Ajuste este valor según el tamaño deseado */

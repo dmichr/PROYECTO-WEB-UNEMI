@@ -1,0 +1,20 @@
+{% extends "sidebar.html" %}
+{% load static %}
+{% block content %}
+<body class="bg-gray-100 flex">
+    <div class="flex-1 p-10">
+        <section class="text-center py-10 bg-white rounded-lg shadow-md">
+            <div class="container mx-auto px-4">
+                {% if user.is_authenticated %}
+                    <h2 class="text-2xl lg:text-3xl text-gray-800 font-bold mb-4">Hola, {{ user.first_name }}!</h2>
+                {% else %}
+                    <h2 class="text-2xl lg:text-3xl text-gray-800 font-bold mb-4">Hola, visitante!</h2>
+                {% endif %}
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+{% endblock content %}

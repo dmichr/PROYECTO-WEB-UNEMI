@@ -2,6 +2,41 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
+from .models import Carrusell 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 '''
 class CustomUserCreationForm(UserCreationForm):
@@ -53,3 +88,22 @@ class CustomUserCreationForm(UserCreationForm):
 
 
 '''
+
+
+
+
+
+class CarrusellForm(forms.ModelForm):
+    class Meta:
+        model = Carrusell
+        fields = ['titulo', 'activo', 'imagen', 'link']
+
+    def clean_imagen(self):
+        imagen = self.cleaned_data.get('imagen')
+        if not imagen and self.instance.pk is None:
+            raise forms.ValidationError("Debe seleccionar una imagen.")
+        return imagen
+
+    def clean(self):
+        cleaned_data = super().clean()
+        return cleaned_data

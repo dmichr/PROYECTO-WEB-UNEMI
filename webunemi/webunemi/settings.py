@@ -31,19 +31,28 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"
 
+AUTH_USER_MODEL = 'user.User'
 # Application definition
 
 INSTALLED_APPS = [
     'jazzmin',
+    'user',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'foro', #aplicacion 1 foro 
+    'crispy_forms',
+    'crispy_tailwind',
+    'tailwind',
+    'foro',
+    #aplicacion 1 foro 
 ]
+TAILWIND_APP_NAME = 'user'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -101,8 +110,8 @@ DATABASES = {
 
 JAZZMIN_SETTINGS={
      
-     "site_logo": "images/IMAGO.jpg",
-     "login_logo": "images/IMAGO.jpg",
+     "site_logo": "images/IMAGO NARANJA.png",
+     "login_logo": "images/LOGO ODEME OFICIAL NARANJA.png",
      "welcome_sign": "Bienvenido al Panel de Administración", 
      "custom_css": "css/custom_admin.css",  
       "copyright": "Todos los derechos reservados © UNEMI 2024",
@@ -138,7 +147,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 
@@ -163,9 +172,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-#para validar login y cierre de secion
-LOGIN_REDIRECT_URL = '/index.html'
-LOGOUT_REDIRECT_URL= '/' 
+
 
 
 
@@ -179,3 +186,11 @@ EMAIL_HOST_USER = 'michelitaromero.o.@gmail.com'  # Usa una cuenta de Gmail vál
 EMAIL_HOST_PASSWORD = 'FerTalamonti.78'
 DEFAULT_FROM_EMAIL = 'dromeroo@unemi.edu..ec'  # Dirección desde la que se enviarán los correos
 
+
+
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}

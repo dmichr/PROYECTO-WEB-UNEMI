@@ -10,7 +10,7 @@
         var calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: 'dayGridMonth',
           locale: 'es',
-          events: '/static/json/events.json',
+          events: '{% url "get_events" %}',
           buttonText:{
             today: 'Hoy'
           }
@@ -67,6 +67,26 @@
   </div>
   <div style="width: 60%; margin:auto; margin-bottom: 40px;" id="calendar"></div>
   <p>  </p>
+<!-- Modal HTML -->
+<div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="eventModalLabel">Event Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h5 id="modalTitle"></h5>
+        <p id="modalDescription"></p>
+        <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+        <p><strong>Date:</strong> <span id="modalDate"></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <script type="text/javascript" src="{% static 'js/calendar.js' %}"></script>

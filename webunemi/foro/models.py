@@ -2,7 +2,7 @@ from django.core.exceptions import ValidationError
 #from django.utils.translation import gettext_lazy as _
 from django.db import models
 from PIL import Image,  UnidentifiedImageError
-
+from django.contrib.auth.models import AbstractUser
 import io
 
 '''def unemi_email_validator(value):
@@ -12,6 +12,19 @@ import io
             params={'value': value},
         )
 #gfuncion para validar solo correos unemi'''
+
+
+class Boletin(models.Model):
+    titulo = models.CharField(max_length=200)
+    fecha = models.DateField()
+    imagen = models.ImageField(upload_to='boletines/')
+    enlace = models.URLField()
+
+    def __str__(self):
+        return f"{self.titulo} - {self.fecha}"
+
+    class Meta:
+        ordering = ['-fecha']
 
 
 
@@ -26,21 +39,23 @@ class Publicacion(models.Model):
     def __str__(self):
         return self.titulo
 
-#funcion para validar las dimensiones de las imagenes a cargar
+from django.db import models
+from django.core.exceptions import ValidationError
+from PIL import Image, UnidentifiedImageError
+
 def validate_image_dimensions(image):
+    if not image:
+        return  # No validamos si no hay imagen
     max_width = 1500
     max_height = 1200
     try:
         img = Image.open(image)
-        img.verify()  # Verifica que es una imagen válida
         width, height = img.size
         if width > max_width or height > max_height:
             raise ValidationError(f'La imagen debe tener un tamaño máximo de {max_width}x{max_height} píxeles.')
     except UnidentifiedImageError:
         raise ValidationError('El archivo subido no es una imagen válida.')
 
-
-#carrusell
 class Carrusell(models.Model):
     titulo = models.CharField(max_length=200)
     fecha_subida = models.DateTimeField(auto_now_add=True)
@@ -53,8 +68,22 @@ class Carrusell(models.Model):
     
     def clean(self):
         super().clean()
-        validate_image_dimensions(self.imagen)
+        if self.imagen:
+            validate_image_dimensions(self.imagen)
     
-    #para validar y redirigir imagenes con links (en caso el admin no suba link a una imagen)
     def get_link(self):
         return self.link if self.link and self.link.lower() != 'none' else None
+    
+#Modelo para eventos del calendario
+class Evento(models.Model):
+    title = models.CharField(max_length=200)
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
+    description = models.TextField()
+    location = models.CharField(max_length=255, blank=True, null=True)
+    url = models.URLField(blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+    
+    

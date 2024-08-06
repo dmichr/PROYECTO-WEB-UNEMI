@@ -1,0 +1,282 @@
+.boletin-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.boletin-title {
+    color: #0056b3;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.fecha-grupo {
+    margin-bottom: 1rem;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    
+}
+
+.fecha-titulo {
+    display: block;
+    color: #ff6600;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    position: relative;
+}
+.fecha-titulo:hover {
+    background-color: #e9e9e9;
+}
+
+.fecha-titulo::before {
+    content: "\25BA";
+    /* Unicode para viñeta */
+    color: #ff6600;
+    font-size: 2rem;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.toggle-icon {
+    font-size: 1.2rem;
+    color: #0056b3;
+    margin-left: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.fecha-titulo.open .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.boletin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.boletin-item {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.boletin-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.boletin-link {
+    cursor: pointer;
+    display: block;
+}
+.boletin-image {
+    width: 50%;
+    height: 50%;
+    /*object-fit: cover; */
+    transition: transform 0.3s ease;
+}
+.boletin-link:hover .boletin-image {
+    transform: scale(1.05);
+}
+.boletin-info {
+    padding: 1rem;
+}
+
+.boletin-info h3 {
+    color: #0056b3;
+    margin: 0 0 0.5rem 0;
+}
+
+.boletin-info p {
+    color: #ff6600;
+    margin: 0;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.pagination a,
+.pagination span {
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: 5px;
+    background: #0056b3;
+    color: white;
+    text-decoration: none;
+}
+
+.pagination .current-page {
+    background: #ff6600;
+}
+
+
+/*MODAL DEL PDF
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #f8f8f8;
+    margin: auto;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+.modal-header {
+    background-color: #0056b3;
+    color: white;
+    padding: 15px 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.close {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ff6600;
+}
+
+.modal-body {
+    flex-grow: 1;
+    
+    overflow: hidden;
+    padding: 2px 16px;
+    height: 80vh;
+        
+}
+
+#pdfViewer {
+    border: none;
+    height: 100%;
+}
+
+.modal-footer {
+    padding: 15px 20px;
+    text-align: right;
+    border-top: 1px solid #e0e0e0;
+}
+
+.btn-download {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-download:hover {
+    background-color: #e55b00;
+}
+
+*/
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 90%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(151, 56, 56, 0.5);
+}
+
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    width: 100%;
+    max-width: 800px;
+    height: 900%;
+    color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content iframe {
+    width: 100%;
+    max-width: 100%;
+    height: calc(50vh - 20px);
+        /* Ajusta la altura para que el iframe no se desborde */
+    
+        border: none;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: #aa1818;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}

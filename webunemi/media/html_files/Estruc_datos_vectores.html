@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Curso de Programacion en R-studio</title>
+
+<script src="libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+<script src="libs/navigation-1.1/codefolding.js"></script>
+<link href="libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Curso de Programacion en R-studio</h1>
+<h3 class="subtitle">CEstructura de Datos Vectores</h3>
+<h4 class="author">Jhon Ronald Barros Naranjo (<a
+href="mailto:jbarrosn@unemi.edu.ec"
+class="email">jbarrosn@unemi.edu.ec</a>)</h4>
+<address class="author_afil">
+UNIVERSIDAD ESTATAL DE MILAGRO<br>
+</div>
+
+
+<div id="estructuras-de-datos" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Estructuras de
+Datos</h1>
+<p>En este capítulo resumiremos las estructuras de datos más importantes
+que se usan en R. Las colecciones o conjunto de datos en R se organizan
+por su dimensión (1º, 2º, o varias dimensiones) y si son homogéneas
+(todos los objetos deben ser del mismo tipo) o heterogéneas ( el
+contenido puede ser de diferentes tipos). A continuación mostramos los
+cinco tipos de datos más usados en el análisis de datos:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center">Homogénea</th>
+<th align="center">Heterogénea</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">Vector atómico</td>
+<td align="center">Lista</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">Matriz</td>
+<td align="center">Data Frame</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">Array</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p><em>Tabla1 Estructura de datos</em><br />
+Realizado en <span
+class="math inline">\(https://es.markdown.net.br/editor/\)</span>.</p>
+<p>Además, analizaremos la sintaxis de R para acceder a las estructuras
+de datos. Como veremos podemos seleccionar un único elemento o varios
+elementos, mediante el uso de la notación de índices que proporciona R.
+Asimismo aprenderemos a elegir elementos por localización dentro de una
+estructura o por nombre.</p>
+<p>La <em>Tabla 2</em> resume los operadores que aporta R para el acceso
+a objetos en estructuras de datos.</p>
+<table>
+<colgroup>
+<col width="35%" />
+<col width="32%" />
+<col width="32%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Sintaxis</th>
+<th align="left">Objetos</th>
+<th align="left">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">x[i]</td>
+<td align="left">Vectores, Listas</td>
+<td align="left">Selecciona elementos del objeto x, descritos en i. i
+puede ser un vector de tipo integer, chararacter (de nombres de los
+objetos) o lógico. Cuando es usado con listas, devuelve una lista.
+Cuando es usado en vectores devuelve un vector.</td>
+</tr>
+<tr class="even">
+<td align="center">x[[i]]</td>
+<td align="left">Listas</td>
+<td align="left">Devuelve un único elemento de x que se encuentra en la
+posición i. i puede ser un vector de tipo integer o character de
+longitud 1.</td>
+</tr>
+<tr class="odd">
+<td align="center">x$n</td>
+<td align="left">Listas, Dataframes</td>
+<td align="left">Devuelve un objeto con nombre n del objeto x.</td>
+</tr>
+<tr class="even">
+<td align="center">[i, j]</td>
+<td align="left">Matrices</td>
+<td align="left">Devuelve el objeto de la fila i y columna j. i y j
+pueden ser un vector de tipo integer o chararacter (de nombres de los
+objetos)</td>
+</tr>
+</tbody>
+</table>
+<p><em>Tabla2 Notación para acceder estructuras de datos</em><br />
+Realizado en <span
+class="math inline">\(https://es.markdown.net.br/editor/\)</span>.</p>
+</div>
+<div id="objetivos" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Objetivos</h1>
+<p>Después de Revisar el siguiente capítulo, deberíamos:</p>
+<ul>
+<li>Conocer las principales estructuras de datos que proporciona R.</li>
+<li>Ser capaces de crear las distintas colecciones en R.</li>
+<li>Saber manipular las diferentes conjuntos de datos que aporta R.</li>
+</ul>
+</div>
+<div id="creación-de-vectores" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Creación de
+Vectores</h1>
+<p>Los vectores atómicos pueden ser creados con la función c(), que
+corresponde a la sigla de combinar:</p>
+<pre><code>vector_double &lt;- c(1, 2.5, 4.5)
+# Con el sufijo L, conseguimos un integer en lugar de un double
+vector_integer &lt;- c(1L, 6L, 10L)
+# Usamos TRUE y FALSE (o T y F) para crear vectores lógicos
+vector_logical &lt;- c(TRUE, FALSE, T, F)
+vector_character &lt;- c(&quot;Hola&quot;, &quot;Mundo!&quot;)</code></pre>
+<p>La función vector() crea un vector de un tipo y longitud que debemos
+especificar en el momento de su declaración:</p>
+<pre><code>vector_double &lt;- vector(mode = &quot;double&quot;, length = 3)
+vector_integer &lt;- vector(mode = &quot;integer&quot;, length = 3)
+vector_logical &lt;- vector(mode = &quot;logical&quot;, length = 4)
+vector_character &lt;- vector(mode = &quot;character&quot;, length = 2)</code></pre>
+<p>Otra posibilidad es hacer uso de las funciones wrapper (del inglés,
+envoltorio) que existen para cada tipo de datos. Las siguientes
+instrucciones son equivalentes a las anteriores:</p>
+<pre><code>vector_double &lt;- double(3)
+vector_integer &lt;- integer(3)
+vector_logical &lt;- logical(4)
+vector_character &lt;- character(2)</code></pre>
+<p>Además, mediante el operador “:” podemos generar sucesiones de
+números:</p>
+<pre><code>1:10
+##  [1]  1  2  3  4  5  6  7  8  9 10
+15:11
+## [1] 15 14 13 12 11
+1:10 - 1
+##  [1] 0 1 2 3 4 5 6 7 8 9
+1:(10 - 1)
+## [1] 1 2 3 4 5 6 7 8 9</code></pre>
+<p>También podemos usar las funciones seq() y rep():</p>
+<pre><code>seq(10)  # mismo efecto que 1:10
+##  [1]  1  2  3  4  5  6  7  8  9 10
+seq(3, 10)  # mismo efecto que 3:10
+## [1]  3  4  5  6  7  8  9 10
+seq(1, 10, by = 3)  #saltando de 3 en 3
+## [1]  1  4  7 10
+rep(1:4, 2)  #repetimos 1:4 dos veces
+## [1] 1 2 3 4 1 2 3 4
+rep(1:4, each = 2)  #repetimos 1:4 dos veces, intercalando resultado
+## [1] 1 1 2 2 3 3 4 4</code></pre>
+</div>
+<div id="longitud" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Longitud</h1>
+<p>Todos los vectores tienen dos propiedades:</p>
+<ul>
+<li>Un tipo, que se puede determinar con la función typeof():<br />
+</li>
+</ul>
+<pre><code>typeof(letters)
+## [1] &quot;character&quot;
+typeof(1:10)
+## [1] &quot;integer&quot;</code></pre>
+<ul>
+<li>Una longitud, que nos dice cuantos elementos contiene el vector.
+Podemos conocer este valor mediante la función length():</li>
+</ul>
+<pre><code>v &lt;- c(1, 2, 3)
+length(v)
+## [1] 3
+length(c(TRUE, FALSE, NA))
+## [1] 3</code></pre>
+<p>Una posible fuente de confusión es cuando trabajamos con vectores de
+tipo character. Con este tipo de vector, la longitud es el número de
+strings, no el número de caracteres en cada string. Para esto último,
+utilizaremos la función nchar():</p>
+<pre><code>alumnos &lt;- c(&quot;Juan&quot;, &quot;Pepe&quot;, &quot;Maria&quot;, &quot;Dolores&quot;)
+length(alumnos)
+## [1] 4
+nchar(alumnos)
+## [1] 4 4 5 7</code></pre>
+</div>
+<div id="tipos-fundamentales-de-vectores-atómicos"
+class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Tipos Fundamentales de
+Vectores Atómicos</h1>
+<p>Los cuatro tipos más importantes de vectores atómicos son:</p>
+<ul>
+<li>Logical</li>
+<li>Integer</li>
+<li>Double (conocidos por numeric)</li>
+<li>Character</li>
+</ul>
+<p>Cabe mencionar que existen los tipos complex y raw que son raramente
+utilizados en el análisis de datos, es por eso que no los trataremos en
+este texto.</p>
+</div>
+<div id="logical" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Logical</h1>
+<p>Los vectores lógicos son el tipo más simple de vector atómico puesto
+que sólo pueden tomar tres posibles valores TRUE, FALSE y NA. Los
+vectores lógicos usualmente son el resultado de expresiones con los
+operadores lógicos y de comparación.</p>
+<pre class="r"><code>1:10%%3 == 0</code></pre>
+<pre><code>##  [1] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE</code></pre>
+<pre class="r"><code>##  [1] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE</code></pre>
+<p>Para mas información sobre la sintaxis de los operadores y su
+precedencia consultar la documentación R:</p>
+<pre><code># Sintaxis de los operadores y su precedéncia
+help(&quot;Syntax&quot;, &quot;base&quot;)
+# Operadores lógicos
+help(&quot;Logic&quot;, &quot;base&quot;)</code></pre>
+</div>
+<div id="numeric" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Numeric</h1>
+<p>Los vectores de tipo integer y double son en R vectores de tipo
+numeric. En R, los números son double por defecto. Si queremos un
+integer, añadiremos la letra L después del número:</p>
+<pre><code>typeof(1)
+## [1] &quot;double&quot;
+typeof(1L)
+## [1] &quot;integer&quot;
+1.5
+## [1] 1.5</code></pre>
+</div>
+<div id="character" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Character</h1>
+<p>Los vectores de tipo character son aquellos en los que cada elemento
+del vector es un string (cadena de caracteres):</p>
+<pre><code>titulo &lt;- &quot;Ciencia de datos en R&quot;</code></pre>
+</div>
+<div id="manipulación-de-vectores-atómicos" class="section level1"
+number="9">
+<h1><span class="header-section-number">9</span> Manipulación de
+Vectores Atómicos</h1>
+<p>Listos, ahora podemos trabajar con vectores, basicamente veremos:</p>
+<ul>
+<li>Cómo conocer si un objeto es un tipo específico de vector.</li>
+<li>De qué modo convertir de un tipo a otro, y cuándo sucede de forma
+automática.</li>
+<li>De qué manera dar nombre a los elementos de un vector.</li>
+<li>Conocer el significado de las operaciones vectorizadas y hacer uso
+de las mismas.</li>
+<li>Qué sucede cuando trabajamos con vectores de diferentes
+longitud.</li>
+<li>Cómo seleccionar partes o elementos de un vector.</li>
+</ul>
+</div>
+<div id="funciones-para-comprobar-el-tipo." class="section level1"
+number="10">
+<h1><span class="header-section-number">10</span> Funciones para
+Comprobar el tipo.</h1>
+<p>En ocasiones queremos realizar diferentes cosas basadas en el tipo de
+vector. Una opción es usar la función <strong>typeof()</strong>. Otra es
+usar las funciones que realizan la comprobación de tipo y devuelven
+<strong>TRUE</strong> o <strong>FALSE</strong>, como
+<em>is.character()</em>, <em>is.double()</em>, <em>is.integer()</em>,
+<em>is.logical()</em> o, de forma más general mediante
+<em>is.atomic()</em>:</p>
+<pre><code>vector_integer &lt;- c(1L, 2L, 3L)
+typeof(vector_integer)
+## [1] &quot;integer&quot;
+is.integer(vector_integer)
+## [1] TRUE
+is.atomic(vector_integer)
+## [1] TRUE</code></pre>
+<pre><code>vector_double &lt;- c(1, 2.5, 4.5)
+typeof(vector_double)
+## [1] &quot;double&quot;
+is.double(vector_double)
+## [1] TRUE
+is.atomic(vector_double)
+## [1] TRUE</code></pre>
+<p>Es importante subrayar que la función is.numeric() comprueba si un
+objeto es de tipo numeric y devuelve TRUE tanto para vectores de tipo
+integer como de tipo double.</p>
+<pre><code>is.numeric(vector_integer)
+## [1] TRUE
+is.numeric(vector_double)
+## [1] TRUE</code></pre>
+<p>En la siguiente tabla resumimos las funciones para comprobar el tipo
+de nuestros vectores:</p>
+<table>
+<colgroup>
+<col width="15%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">logical</th>
+<th align="center">integer</th>
+<th align="center">double</th>
+<th align="center">character</th>
+<th align="center">list</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">is.logical()</td>
+<td align="center">x</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">is.integer()</td>
+<td align="center"></td>
+<td align="center">x</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">is.double()</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">x</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">is.numeric()</td>
+<td align="center"></td>
+<td align="center">x</td>
+<td align="center">x</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">is.character</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">x</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">is.atomic()</td>
+<td align="center">x</td>
+<td align="center">x</td>
+<td align="center">x</td>
+<td align="center">x</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">is.list()</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">x</td>
+</tr>
+<tr class="even">
+<td align="left">is.vector()</td>
+<td align="center">x</td>
+<td align="center">x</td>
+<td align="center">x</td>
+<td align="center">x</td>
+<td align="center">x</td>
+</tr>
+</tbody>
+</table>
+<p><em>Tabla 3 Funciones comprobación de tipos</em></p>
+</div>
+<div id="coerción" class="section level1" number="11">
+<h1><span class="header-section-number">11</span> Coerción</h1>
+<p>Todos los elementos de un vector deben ser del mismo tipo, así pues
+cuando intentemos combinar diferentes tipos estos serán convertidos al
+tipo más flexible. El orden es el siguiente:</p>
+<pre><code>logical &lt; integer &lt; double &lt; character</code></pre>
+<p>Por ejemplo, mezclar un character y un integer producirá un
+character:</p>
+<pre><code>v &lt;- c(&quot;a&quot;, 1)
+v
+## [1] &quot;a&quot; &quot;1&quot;
+typeof(v)
+## [1] &quot;character&quot;
+class(v)
+## [1] &quot;character&quot;</code></pre>
+<p>Cuando un vector lógico es convertido a un integer o double, TRUE es
+cambiado a 1 y FALSE a 0:</p>
+<pre><code>v &lt;- c(FALSE, FALSE, FALSE)
+as.numeric(v)
+## [1] 0 0 0</code></pre>
+<p>La coerción sucede normalmente de forma automática. La mayoría de
+funciones matemáticas (+, log, abs, etc.) convierten a los tipos double
+o integer, y la mayoría de operaciones lógicas (&amp;, |, any, etc.)
+cambian al tipo logical. Si el cambio de un tipo en otro pierde
+información, R nos lo advertirá mediante un mensaje.</p>
+<p>#Nombres de los Elementos Una gran característica de los vectores en
+R es que podemos asignar a cada elemento un nombre. Etiquetar los
+elementos hace nuestro código mas legible. Podemos especificar los
+nombres cuando creamos un vector con la forma nombre = valor:</p>
+<pre class="r"><code>c(manzana = 1, platano = 2, kiwi = 3)</code></pre>
+<pre><code>## manzana platano    kiwi 
+##       1       2       3</code></pre>
+<pre class="r"><code>## manzana platano    kiwi 
+##       1       2       3</code></pre>
+<p>Podemos añadir nombres a los elementos de un vector después de su
+creación con la ayuda de la función names():</p>
+<pre class="r"><code>frutas &lt;- 1:4
+names(frutas) &lt;- c(&quot;manzana&quot;, &quot;platano&quot;, &quot;kiwi&quot;)
+frutas</code></pre>
+<pre><code>## manzana platano    kiwi    &lt;NA&gt; 
+##       1       2       3       4</code></pre>
+<pre class="r"><code>## manzana platano    kiwi    &lt;NA&gt; 
+##       1       2       3       4</code></pre>
+<p>Gracias a la función names() podemos conocer los nombres de un
+vector:</p>
+<pre class="r"><code>names(frutas)</code></pre>
+<pre><code>## [1] &quot;manzana&quot; &quot;platano&quot; &quot;kiwi&quot;    NA</code></pre>
+<pre class="r"><code>## [1] &quot;manzana&quot; &quot;platano&quot; &quot;kiwi&quot;    NA</code></pre>
+<p>Por último, si un vector no tiene nombres, la función names()
+devuelve NULL:</p>
+<pre><code>names(1:4)
+## NULL</code></pre>
+</div>
+<div id="operaciones-vectorizadas" class="section level1" number="12">
+<h1><span class="header-section-number">12</span> Operaciones
+Vectorizadas</h1>
+<p>La mayoría de las operaciones en R son vectorizadas, esto es que un
+operador o una función actúa en cada elemento de un vector sin la
+necesidad de que tengamos que escribir una construcción iterativa. Esta
+característica nos permite escribir un código más eficiente, conciso y
+mas legible que en otros lenguajes de programación.</p>
+<p>El ejemplo mas simple es cuando sumamos dos vectores:</p>
+<pre class="r"><code>v1 &lt;- 1:4
+v2 &lt;- 5:8
+v3 &lt;- v1 + v2
+v3</code></pre>
+<pre><code>## [1]  6  8 10 12</code></pre>
+<pre class="r"><code>## [1]  6  8 10 12</code></pre>
+<p>Sin la vectorización tendríamos que realizar la suma mediante el uso
+de una estructura iterativa, como por ejemplo:</p>
+<pre class="r"><code>v3 &lt;- numeric(length(v1))
+for (i in seq_along(v1)) {
+    v3[i] &lt;- v1[i] + v2[i]
+}
+v3</code></pre>
+<pre><code>## [1]  6  8 10 12</code></pre>
+<pre class="r"><code>## [1]  6  8 10 12</code></pre>
+<p>Otro tipo de operaciones que podemos realizar de forma vectorizada
+son las comparaciones lógicas. Supongamos que queremos saber que
+elementos en un vector son mas grandes que 2. Podríamos hacer lo
+siguiente:</p>
+<pre class="r"><code>v1 &lt;- 1:4
+v1 &gt; 2</code></pre>
+<pre><code>## [1] FALSE FALSE  TRUE  TRUE</code></pre>
+<pre class="r"><code>## [1] FALSE FALSE  TRUE  TRUE</code></pre>
+<p>A continuación, mostramos otros ejemplos de operaciones vectorizadas
+de tipo lógico:</p>
+<pre class="r"><code>v1 &lt;- 1:4
+v1 &gt;= 2</code></pre>
+<pre><code>## [1] FALSE  TRUE  TRUE  TRUE</code></pre>
+<pre class="r"><code>## [1] FALSE  TRUE  TRUE  TRUE
+v2 &lt; 3</code></pre>
+<pre><code>## [1] FALSE FALSE FALSE FALSE</code></pre>
+<pre class="r"><code>## [1] FALSE FALSE FALSE FALSE
+v3 == 8</code></pre>
+<pre><code>## [1] FALSE  TRUE FALSE FALSE</code></pre>
+<pre class="r"><code>## [1] FALSE  TRUE FALSE FALSE</code></pre>
+<p>Desde luego, la resta, multiplicación y división son también
+operaciones vectorizadas:</p>
+<pre class="r"><code>v1 - v2</code></pre>
+<pre><code>## [1] -4 -4 -4 -4</code></pre>
+<pre class="r"><code>## [1] -4 -4 -4 -4
+v1 * v2</code></pre>
+<pre><code>## [1]  5 12 21 32</code></pre>
+<pre class="r"><code>## [1]  5 12 21 32
+v1/v2</code></pre>
+<pre><code>## [1] 0.2000000 0.3333333 0.4285714 0.5000000</code></pre>
+<pre class="r"><code>## [1] 0.2000000 0.3333333 0.4285714 0.5000000</code></pre>
+</div>
+<div id="reciclado-de-vectores-y-repetición" class="section level1"
+number="13">
+<h1><span class="header-section-number">13</span> Reciclado de Vectores
+y Repetición</h1>
+<p>En los ejemplos anteriores hemos realizado operaciones aritméticas
+con vectores de la misma longitud. No obstante podríamos estar
+preguntándonos, “¿Qué sucede si intentamos realizar operaciones en
+vectores de diferente longitud?”.</p>
+<p>Si la longitud del vector más grande no es múltiple con la longitud
+del vector más pequeño, R nos lo hará saber mediante un mensaje:</p>
+<pre class="r"><code>1:5 + 1:7</code></pre>
+<pre><code>## Warning in 1:5 + 1:7: longitud de objeto mayor no es múltiplo de la longitud de
+## uno menor</code></pre>
+<pre><code>## [1]  2  4  6  8 10  7  9</code></pre>
+<pre class="r"><code>## Warning in 1:5 + 1:7: longer object length is not a multiple of shorter
+## object length
+## [1]  2  4  6  8 10  7  9</code></pre>
+<p>Aunque R nos permita realizar operaciones con vectores de diferente
+longitud, esto no significa que nosotros deberíamos hacerlo. Realizar
+una suma de un valor escalar a un vector es coherente, pero realizar
+operaciones con vectores de diferente longitud puede llevarnos a
+errores. Es por eso, que recomendamos crear explícitamente vectores de
+la misma longitud antes de operar con ellos.</p>
+<p>La función rep() es muy útil para esta tarea, permitiéndonos crear un
+vector con elementos repetidos:</p>
+<pre class="r"><code>rep(1:5, 3)</code></pre>
+<pre><code>##  [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5</code></pre>
+<pre class="r"><code>##  [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+rep(1:5, each = 3)</code></pre>
+<pre><code>##  [1] 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5</code></pre>
+<pre class="r"><code>##  [1] 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5
+rep(1:5, times = 1:5)</code></pre>
+<pre><code>##  [1] 1 2 2 3 3 3 4 4 4 4 5 5 5 5 5</code></pre>
+<pre class="r"><code>##  [1] 1 2 2 3 3 3 4 4 4 4 5 5 5 5 5
+rep(1:5, length.out = 7)</code></pre>
+<pre><code>## [1] 1 2 3 4 5 1 2</code></pre>
+<pre class="r"><code>## [1] 1 2 3 4 5 1 2
+# Alternativamente podemos hacerlo mediante rep_len (desde v3.0.0)
+rep_len(1:5, 7)</code></pre>
+<pre><code>## [1] 1 2 3 4 5 1 2</code></pre>
+<pre class="r"><code>## [1] 1 2 3 4 5 1 2</code></pre>
+</div>
+<div id="selección-de-elementos" class="section level1" number="14">
+<h1><span class="header-section-number">14</span> Selección de
+Elementos</h1>
+<p>En ocasiones queremos acceder a una única parte de un vector, o quizá
+a un único elemento. Esto es conocido como indexing (del inglés,
+indexación) y se realiza mediante el uso de los corchetes []. Existen
+cuatro maneras diferentes de elegir una parte de un vector:</p>
+<p>Mediante un vector numérico de tipo integer. Los integers deben ser
+todos positivos, todos negativos, o cero.</p>
+<p>Seleccionar los elementos con integers positivos extrae los elementos
+de las posiciones indicadas:</p>
+<pre class="r"><code>v&lt;- c(&quot;uno&quot;, &quot;dos&quot;, &quot;tres&quot;, &quot;cuatro&quot;, &quot;cinco&quot;)
+v[c(3, 2, 5)]</code></pre>
+<pre><code>## [1] &quot;tres&quot;  &quot;dos&quot;   &quot;cinco&quot;</code></pre>
+<pre class="r"><code>## [1] &quot;tres&quot;  &quot;dos&quot;   &quot;cinco&quot;</code></pre>
+<p>Repitiendo una posición, podemos obtener un vector de una longitud
+más grande que el vector original:</p>
+<pre class="r"><code>v[c(1, 1, 5, 5, 5, 2)]</code></pre>
+<pre><code>## [1] &quot;uno&quot;   &quot;uno&quot;   &quot;cinco&quot; &quot;cinco&quot; &quot;cinco&quot; &quot;dos&quot;</code></pre>
+<pre class="r"><code>## [1] &quot;uno&quot;   &quot;uno&quot;   &quot;cinco&quot; &quot;cinco&quot; &quot;cinco&quot; &quot;dos&quot;</code></pre>
+<p>Los valores negativos eliminan los elementos en las posiciones
+especificadas:</p>
+<pre class="r"><code>v[c(-1, -3, -5)]</code></pre>
+<pre><code>## [1] &quot;dos&quot;    &quot;cuatro&quot;</code></pre>
+<pre class="r"><code>## [1] &quot;dos&quot;    &quot;cuatro&quot;</code></pre>
+<p>No podemos mezclar valores positivos y negativos:</p>
+<pre><code>v[c(1, -1)]</code></pre>
+<p>Por medio de un vector lógico obtenemos todos los valores
+correspondientes al valor TRUE. Este tipo es útil en conjunción con la
+funciones de comparación:</p>
+<pre class="r"><code>v &lt;- c(10, 3, NA, 5, 8, 1, NA)
+# Devuelve todos los valores que no son NA en x</code></pre>
+<pre class="r"><code>v[!is.na(v)]</code></pre>
+<pre><code>## [1] 10  3  5  8  1</code></pre>
+<pre class="r"><code>## [1] 10  3  5  8  1
+# Todos los valores pares (o desconocidos) en x</code></pre>
+<pre class="r"><code>v[v%%2 == 0]</code></pre>
+<pre><code>## [1] 10 NA  8 NA</code></pre>
+<pre class="r"><code>## [1] 10 NA  8 NA</code></pre>
+<p>Si hemos dado nombres a los elementos de nuestro vector, podemos
+seleccionar sus elementos con un vector de tipo character:</p>
+<pre class="r"><code>frutas &lt;- c(manzana = 1, platano = 2, kiwi = 3, pera = 4, naranja = 5)
+frutas[c(&quot;platano&quot;, &quot;naranja&quot;)]</code></pre>
+<pre><code>## platano naranja 
+##       2       5</code></pre>
+<pre class="r"><code>## platano naranja 
+##       2       5</code></pre>
+<p>Mediante v[], obtendremos el vector completo:</p>
+<pre class="r"><code>v &lt;- c(10, 3, NA, 5, 8, 1, NA)
+v[]</code></pre>
+<pre><code>## [1] 10  3 NA  5  8  1 NA</code></pre>
+<pre class="r"><code>## [1] 10  3 NA  5  8  1 NA</code></pre>
+<p>Esta notación no es muy útil para acceder a vectores, sin embargo nos
+será de gran ayuda en el acceso a matrices (y cualquier tipo de
+estructura multidimensional) puesto que nos permite seleccionar todas
+las filas o columnas. Por ejemplo, si x es 2D, v[1, ] selecciona la
+primera fila y todas las columnas, y v[, -1] recupera todas las filas y
+columnas excepto la primera.</p>
+<div id="resumen" class="section level2" number="14.1">
+<h2><span class="header-section-number">14.1</span> Resumen</h2>
+<ul>
+<li>Los vectores tienen una longitud que podemos conocer o definir
+mediante la función length().</li>
+<li>La función seq() y sus variantes nos permite crear sucesiones de
+números.</li>
+<li>Podemos dar nombre a los elementos de un vector en el momento de su
+creación o una vez creado mediante la función names().</li>
+<li>Podemos acceder a los elementos de un vector mediante los [] y un
+índice.</li>
+<li>La función rep() nos permite crear vectores con elementos
+repetidos.</li>
+</ul>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "libs/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

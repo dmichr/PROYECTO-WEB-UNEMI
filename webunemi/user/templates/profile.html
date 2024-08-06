@@ -1,0 +1,56 @@
+{% extends "sidebar.html" %}
+{% block content %}
+<div class="flex items-center justify-center min-h-screen">
+    <div class="bg-white rounded-lg shadow-md p-8 max-w-lg w-full">
+        <h1 class="text-3xl font-bold mb-6 text-center">Perfil de Usuario</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold" for="id_first_name">Nombre:</label>
+                    {{ form.first_name }}
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold" for="id_last_name">Apellido:</label>
+                    {{ form.last_name }}
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold" for="id_email">Correo Electrónico:</label>
+                    {{ form.email }}
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold" for="id_city">Ciudad:</label>
+                    {{ form.city }}
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold" for="id_phone_number">Número de Teléfono:</label>
+                    {{ form.phone_number }}
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold" for="id_username">Nombre de Usuario:</label>
+                    {{ form.username }}
+                </div>
+                <div class="mb-4 col-span-2">
+                    <label class="block text-gray-700 font-bold" for="id_address">Dirección:</label>
+                    {{ form.address }}
+                </div>
+                <div class="mb-4 col-span-2">
+                    <label class="block text-gray-700 font-bold" for="id_profile_image">Imagen de Perfil:</label>
+                    {% if form.instance.profile_image %}
+                        <img src="{{ form.instance.profile_image.url }}" alt="Imagen de Perfil" class="rounded-full h-32 w-32 mx-auto mb-4">
+                    {% else %}
+                        <p>No hay imagen de perfil disponible.</p>
+                    {% endif %}
+                    {{ form.profile_image }}
+                    {% if form.instance.profile_image %}
+                        <p class="text-sm text-gray-500 mt-2">Sube una nueva imagen para actualizar la actual.</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-blue-700 transition duration-300 ease-in-out">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

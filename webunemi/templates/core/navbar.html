@@ -1,0 +1,87 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Guardian</title>
+
+    <!-- Enlaces a estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.1/dist/tailwind.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+</head>
+<body class="bg-gradient bg-primary">
+    <nav class="bg-blue-500 py-4">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <a href="" class="text-white text-xl font-bold">
+                <img src="{% static 'img/logo.svg' %}" alt="Logo" class="h-8">
+            </a>
+            <button
+                class="lg:hidden text-white focus:outline-none"
+                type="button"
+                aria-label="Toggle navigation"
+            >
+                <i class="bx bx-menu text-3xl"></i>
+            </button>
+            <div class="hidden lg:flex lg:flex-grow lg:items-center lg:justify-end" id="navbarSupportedContent">
+                {% if user.is_authenticated %}
+                    <ul class="flex gap-4 text-white font-bold">
+                        <li><a href="#" class="hover:text-gray-300">Inicio</a></li>
+                    </ul>
+                    <div class="relative ml-4">
+                        <button
+                            id="user-menu-btn"
+                            class="flex items-center text-white font-bold focus:outline-none"
+                            aria-label="User menu"
+                        >
+                            <img
+                                src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
+                                alt="Avatar"
+                                class="rounded-full h-8 mr-2"
+                            />
+                            <span>{{ user.username }}</span>
+                            <i class="bx bx-chevron-down ml-2"></i>
+                        </button>
+                        <ul
+                            id="user-menu"
+                            class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg hidden"
+                        >
+                            <li><a href="" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Mi perfil</a></li>
+                            <li><a href="{% url 'user:logout' %}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Cerrar sesión</a></li>
+                        </ul>
+                    </div>
+                {% else %}
+                    <div class="flex gap-12">
+                        <a href="{% url 'user:home' %}" class="text-white font-bold hover:text-gray-200">INICIO</a>
+                        <a href="{% url 'user:register' %}" class="text-white font-bold hover:text-gray-200">REGISTER</a>
+                        <a href="{% url 'user:login' %}" class="text-white font-bold hover:text-gray-200">LOGIN</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+
+    {% block content %}
+    <!-- Contenido específico de la página -->
+    {% endblock content %}
+
+    <footer class="bg-green-500 text-white text-center py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center gap-4">
+                <a href="#" class="text-white text-3xl hover:text-gray-200 transition-colors duration-300"><i class='bx bxl-facebook-circle'></i></a>
+                <a href="#" class="text-white text-3xl hover:text-gray-300 transition-colors duration-300"><i class='bx bxl-twitter'></i></a>
+                <a href="#" class="text-white text-3xl hover:text-gray-300 transition-colors duration-300"><i class='bx bxl-linkedin'></i></a>
+                <a href="#" class="text-white text-3xl hover:text-gray-300 transition-colors duration-300"><i class='bx bxl-instagram'></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para manejar el menú desplegable del usuario -->
+     <script src="{% static 'js/usermodal.js' %}"></script>
+</body>
+</html>

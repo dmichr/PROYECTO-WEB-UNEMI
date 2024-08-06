@@ -1,0 +1,156 @@
+{% load crispy_forms_tags %} 
+{% load static %} 
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de usuarios | Odeme</title>
+
+    <!-- Enlaces a estilos -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.1/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link rel="icon" href="{% static 'images/IMAGO NARANJA.png' %}" type="image/png">
+  
+    <style>
+        .bg-gradient-dark-blue-to-white {
+            background: linear-gradient(to bottom, #0d1b2a, #1e3a8a, #3b82f6, #60a5fa, #ffffff);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-primary,
+        .btn-outline-primary {
+            border-radius: 20px;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #ff6b00;
+            border-color: #ff6b00;
+        }
+
+        .btn-outline-primary {
+            color: #ff6b00;
+            border-color: #ff6b00;
+        }
+
+        .btn-primary:hover,
+        .btn-outline-primary:hover {
+            background-color: #e65c00;
+            border-color: #e65c00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+
+  </head>
+  <div
+    class="bg-gradient-dark-blue-to-white min-h-screen flex items-center justify-center"
+  >
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-4xl">
+      <h2 class="text-2xl font-bold mb-6 text-center">Registrar Usuario</h2>
+      <form method="post" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {% csrf_token %}
+        <div class="space-y-4">
+          <div>
+            <label
+              for="first_name"
+              class="block text-sm font-medium text-gray-700"
+            ></label>
+            {{ form.first_name|as_crispy_field }}
+          </div>
+          <div>
+            <label
+              for="last_name"
+              class="block text-sm font-medium text-gray-700"
+            ></label>
+            {{ form.last_name|as_crispy_field }}
+          </div>
+          <div>
+            <label
+              for="email"
+              class="block text-sm font-medium text-gray-700"
+            ></label>
+            {{ form.email|as_crispy_field }}
+          </div>
+          <div>
+            <label
+              for="city"
+              class="block text-sm font-medium text-gray-700"
+            ></label>
+            {{ form.city|as_crispy_field }}
+          </div>
+          <div>
+            <label
+              for="phone_number"
+              class="block text-sm font-medium text-gray-700"
+            ></label>
+            {{ form.phone_number|as_crispy_field }}
+          </div>
+        </div>
+        <!-- Right Column -->
+        <div class="space-y-4">
+          <div>
+            <label
+              for="address"
+              class="block text-sm font-medium text-gray-700"
+            ></label>
+            {{ form.address|as_crispy_field }}
+          </div>
+          <div>
+            <label
+              for="username"
+              class="block text-sm font-medium text-gray-700"
+            ></label>
+            {{ form.username|as_crispy_field }}
+          </div>
+          <div>
+            <label
+              for="password1"
+              class="block text-sm font-medium text-gray-700"
+            ></label>
+            {{ form.password1|as_crispy_field }}
+          </div>
+          <div>
+            <label
+              for="password2"
+              class="block text-sm font-medium text-gray-700"
+            ></label>
+            {{ form.password2|as_crispy_field }}
+          </div>
+        </div>
+        <div class="col-span-1 md:col-span-2 text-center">
+            <div class="flex justify-center mt-4 space-x-4">
+                <button
+                    type="submit"
+                    class="btn btn-primary w-full"
+                >
+                    Register
+                </button>
+                <a
+                    href="{% url 'user:login' %}"
+                    class="btn btn-outline-primary w-full text-center"
+                >
+                    Login
+                </a>
+
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  {% endblock content %}
+</html>
