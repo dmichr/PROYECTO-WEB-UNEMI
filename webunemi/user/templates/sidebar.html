@@ -35,8 +35,8 @@
                 </a>
             </li>
             <li><a href="{% url 'lista_publicaciones' %}" class="hover:text-orange-400 block py-2">Publicaciones</a></li>
-            <li><a href="{% url 'user:dashboard' %}" class="hover:text-orange-400 block py-2">Mis Publicacioness</a></li>
-            <li><a href="{% url 'user:dashboard' %}" class="hover:text-orange-400 block py-2">Mapa</a></li>
+            <li><a href="{% url 'user:dashboard' %}" class="hover:text-orange-400 block py-2">Mis Publicaciones</a></li>
+            <li><a href="{% url 'user:dashboard' %}" class="hover:text-orange-400 block py-2">Tutorías</a></li>
         </ul>
         <a href="{% url 'user:logout' %}" class="mt-auto text-white py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 text-center block flex items-center justify-center hover:text-orange-400">
             <i class='bx bx-log-out text-2xl mr-2'></i> Salir
@@ -67,4 +67,23 @@
         }
     </script>
 </body>
+
+<style>
+    /* Asegúrate de que el sidebar permanezca fijo */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 16rem; /* w-64 en Tailwind */
+        overflow-y: auto;
+    }
+
+    /* Ajusta el contenido principal para que no se superponga con el sidebar */
+    #content {
+        margin-left: 16rem;
+    }
+
+    
+</style>
 </html>

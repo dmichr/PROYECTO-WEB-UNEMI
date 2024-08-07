@@ -50,7 +50,7 @@ def get_events(request):
 
 
 def home(request):
-    publicaciones = Publicacion.objects.filter(activo=True).order_by('-fecha_publicacion')
+    publicaciones = Publicacion.objects.filter(activo=True)[:4]
     carrusell = Carrusell.objects.filter(activo=True).order_by('-fecha_subida')
     carrusell_length = len(carrusell)
     step = 100 / carrusell_length if carrusell_length > 0 else 0
@@ -91,8 +91,32 @@ def lista_publicaciones(request):
     return render(request, 'core/lista_publicaciones.html', {'publicaciones': publicaciones})
 
 
-def about(request):
-    return render(request, 'core/about.html')
+def about(request):  
+    
+    return render(request,'core/about.html')
+
+
+def all_events(request):                     
+    all_events = Evento.objects.all()               
+    out = []       
+    for event in all_events: 
+        out.append({      
+            'id': event.id,  # Añadido ID para facilitar la identificación
+            'title': event.title,          
+            'description': event.description,
+            'start': event.start_date.strftime("%Y-%m-%dT%H:%M:%S"),  # Formato ISO 8601
+            'end': event.end_date.strftime("%Y-%m-%dT%H:%M:%S"),     # Formato ISO 8601
+            'location': event.location,  # Incluye la ubicación si es necesario
+            'url': event.get_absolute_url(),            # Incluye URL si es necesario
+        })                      
+    return JsonResponse(out, safe=False) 
+
+
+
+
+'''def about(request):
+    
+    return render(request, 'core/about.html')'''
 
 def service(request):
     return render(request, 'core/service.html')

@@ -1,20 +1,29 @@
 {% extends "sidebar.html" %}
 {% load static %}
+
 {% block content %}
-<body class="bg-gray-100 flex">
-    <div class="flex-1 p-10">
-        <section class="text-center py-10 bg-white rounded-lg shadow-md">
-            <div class="container mx-auto px-4">
-                {% if user.is_authenticated %}
-                    <h2 class="text-2xl lg:text-3xl text-gray-800 font-bold mb-4">Hola, {{ user.first_name }}!</h2>
-                {% else %}
-                    <h2 class="text-2xl lg:text-3xl text-gray-800 font-bold mb-4">Hola, visitante!</h2>
-                {% endif %}
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    
-                </div>
-            </div>
-        </section>
+<div class="flex-1 bg-gradient-to-b from-blue-900 to-white min-h-screen ">
+    <div class="p-6">
+        <div class="bg-white rounded-lg shadow-md p-8 mx-auto max-w-4xl">
+            {% if user.is_authenticated %}
+                <h2 class="text-2xl lg:text-3xl text-gray-800 font-bold mb-4">Hola, {{ user.first_name }}!</h2>
+            {% else %}
+                <h2 class="text-2xl lg:text-3xl text-gray-800 font-bold mb-4">Hola, visitante!</h2>
+            {% endif %}
+            <!-- Aquí puedes agregar más contenido si lo necesitas -->
+        </div>
     </div>
-</body>
+</div>
 {% endblock content %}
+
+<style>
+    /* Asegúrate de que el contenido principal no se superponga con el sidebar */
+    #content {
+        margin-left: 16rem; /* Ajusta esto al ancho de tu sidebar */
+    }
+
+    /* Gradiente de fondo */
+    .bg-gradient-to-b {
+        background-image: linear-gradient(to bottom, #1e3a8a, #ffffff);
+    }
+</style>

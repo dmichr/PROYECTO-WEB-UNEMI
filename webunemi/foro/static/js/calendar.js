@@ -2,15 +2,31 @@ document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
-        events: '/events.json',  // Esta es la nueva URL que apunta a tu vista
+        locale: 'es',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        events: '/all_events/',
         eventClick: function (info) {
-            document.getElementById('modalTitle').textContent = info.event.title;
-            document.getElementById('modalDescription').textContent = info.event.extendedProps.description;
-            document.getElementById('modalLocation').textContent = info.event.extendedProps.location;
-            document.getElementById('modalDate').textContent = `${info.event.start.toLocaleDateString()} - ${info.event.end.toLocaleDateString()}`;
+            info.jsEvent.preventDefault();
+
+            document.getElementById('eventTitle').textContent = info.event.title;
+            document.getElementById('eventDescription').textContent = info.event.extendedProps.description || 'No hay descripción disponible';
+            document.getElementById('eventLocation').textContent = info.event.extendedProps.location || 'No se especificó ubicación';
 
             var myModal = new bootstrap.Modal(document.getElementById('eventModal'));
             myModal.show();
+
+            // Agregar evento para cerrar el modal
+            document.querySelector('#eventModal .btn-close').addEventListener('click', function () {
+                myModal.hide();
+            });
+
+            document.querySelector('#eventModal .btn-secondary').addEventListener('click', function () {
+                myModal.hide();
+            });
         }
     });
     calendar.render();

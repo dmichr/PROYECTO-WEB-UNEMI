@@ -25,6 +25,7 @@ urlpatterns = [
     path('', home, name='home'),  # URL raíz
     path('boletines/', include('foro.urls')),
     path('about.html/', about, name='about'),
+    path('all_events/', all_events, name='all_events'),
     path('service.html/', service, name='service'),
     path('contact.html/', contact, name='contact'),
     path('contact/success/', contact_success, name='contact_success'),

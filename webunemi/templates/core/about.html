@@ -1,27 +1,6 @@
 {% extends "core/index.html" %}
 {% load static %}  <!-- Carga de archivos estáticos -->
 {% block body %} 
-<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
-<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/locales/es.global.min.js'></script>
-    <script>
-
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth',
-          locale: 'es',
-          events: '{% url "get_events" %}',
-          buttonText:{
-            today: 'Hoy'
-          }
-          
-        });
-        calendar.render();
-      });
-
-    </script>
-
-
 
   <!-- about section -->
   <section class="about_section layout_padding">
@@ -67,28 +46,31 @@
   </div>
   <div style="width: 60%; margin:auto; margin-bottom: 40px;" id="calendar"></div>
   <p>  </p>
-<!-- Modal HTML -->
+
+
+  <!-- Modal -->
 <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="eventModalLabel">Event Details</h5>
+        <h5 class="modal-title" id="eventModalLabel">Detalles del Evento</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h5 id="modalTitle"></h5>
-        <p id="modalDescription"></p>
-        <p><strong>Location:</strong> <span id="modalLocation"></span></p>
-        <p><strong>Date:</strong> <span id="modalDate"></span></p>
+        <p><strong>Título:</strong> <span id="eventTitle"></span></p>
+        <p><strong>Descripción:</strong> <span id="eventDescription"></span></p>
+        <p><strong>Ubicación:</strong> <span id="eventLocation"></span></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
 </div>
 
 
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/locales/es.global.min.js'></script>
 <script type="text/javascript" src="{% static 'js/calendar.js' %}"></script>
 {% endblock body %}
 

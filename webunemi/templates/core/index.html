@@ -44,7 +44,7 @@
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="{%static 'images/LOGO ODEME OFICIAL NARANJA.png'%}" width="600" height="100" alt="Logo-odeme.png oficial">
+            <img src="{%static 'images/Vertical_economia_online_NUEVO.png'%}" width="600" height="100" alt="Logo-odeme.png oficial">
           
           </a>
           <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
@@ -382,21 +382,15 @@ input#slide{{ forloop.counter }}:checked ~ .pagination .pagination-item[for="sli
         </div>
       </div>
       <div class="work_container ">
-        {% for publicacion in publicaciones %}
+        {% for publicacion in publicaciones|slice:":4"%}
         <div class="box " >   <!-- box-{{ forloop.counter }} -->  
-          <a href="{% url 'detalle_publicacion' publicacion.id %}" target="_blank">
-            <div class="img-box">
-              {{ publicacion.titulo }}
-              {% if publicacion.imagen %}
-                <img src="{{ publicacion.imagen.url }}" alt="{{ publicacion.titulo }}">  
-              {% endif %}         
-            <div class="name">
-              <h6>
-                {{ publicacion.titulo }}
-              </h6>
-              
-            </div>
-          </a>
+          <a href="{{ publicacion.html_contenido.url }}" target="_blank">
+          <div class="img-box">
+            <img src="static/images/agregar-archivo.png" alt="nuevo-archivo">
+          </div>
+          <div class="name">{{ publicacion.titulo }}</div>
+          <span class="leer-mas">Leer más</span>
+        </a>
         </div>
         {% endfor %}
       </div>
