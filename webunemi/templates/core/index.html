@@ -14,7 +14,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>ODEME - !Economía OnLine!</title>
+  <title>Economía en Línea!</title>
 
   <!-- slider stylesheet -->
    
@@ -44,7 +44,7 @@
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="{%static 'images/Vertical_economia_online_NUEVO.png'%}" width="600" height="100" alt="Logo-odeme.png oficial">
+            <img src="{%static 'images/Vertical_economia_online_NARANJA.png'%}" width="600" height="100" alt="Logo-odeme.png oficial">
           
           </a>
           <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
@@ -155,93 +155,8 @@ input#slide{{ forloop.counter }}:checked ~ .pagination .pagination-item[for="sli
 
 </style>
 
-  <!-- 
-  <div class="container-all">
-        <a href="https://www.unemi.edu.ec/" target="_blank">
-        <input type="radio" id="1" name="image-side" hidden/>
-        <input type="radio" id="2" name="image-side" hidden/>
-        <input type="radio" id="3" name="image-side" hidden/>
-        <div class="slider">
-            <div class="item-slider">
-                <img class= 'carrusell1'src="static/images/UnemiCarrusell1.jpg">
-            </div>
-
-            <div class="item-slider">
-                <img src="static/images/Unemipg2.jpg">
-            </div>
-
-            <div class="item-slider">
-                <img src="static/images/Unemipg3.jpg">
-            </div>
-        </div>
-        <div class="pagination">
-            <label class="pagination-item" for="1"><img src="static/images/Unemipag1.jpg"></label>
-            <label class="pagination-item" for="2"><img src="static/images/Unemipg2.jpg"></label>
-            <label class="pagination-item" for="3"><img src="static/images/Unemipg3.jpg"></label>
-        </div>
-        </a>
-    </div>
-  lider section -->
-
-
-
-
-  <!-- CARRUSEL 
-    <section class=" slider_section position-relative">
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="slider_item-box layout_padding2">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-12 p-0">
-                    <div class="img-box">
-                      <div>
-                        <img src="static/images/UnemiCarrusell1.jpg" alt="" class="" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <div class="slider_item-box layout_padding2">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-12 p-0">
-                    <div class="img-box">
-                      <div>
-                        <img src="static/images/UnemiCarrusell1.jpg" alt="" class="" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="container">
-        <div class="slider_nav-box">
-          
-          <div class="custom_carousel-control">
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    -->
-
-    <!-- end slider section -->
-  </div>
+ 
+  
   <div class="bg">
 
     <!-- about section -->
@@ -395,72 +310,7 @@ input#slide{{ forloop.counter }}:checked ~ .pagination .pagination-item[for="sli
         {% endfor %}
       </div>
 
-      <!--     se podria adicionar un html que redirecione a un listado con todas las publicaciones/visibles para el usuario
-      <div class="container">
-        <div class="btn-box">
-          <a href="{% url 'home' %}">
-            Read More
-          </a>
-          <hr>
-        </div>
-      </div>
-      --> 
-
-      <!--   
-        <div class="box b-1">
-          <div class="img-box">
-            <img src="static/images/w-1.png" alt="">
-          </div>
-          <div class="name">
-            <h6>
-              Adipiscing elit
-            </h6>
-          </div>
-        </div>
-        <div class="box b-2">
-          <div class="img-box ">
-            <img src="static/images/w-2.png" alt="">
-          </div>
-          <div class="name">
-            <h6>
-              Adipiscing elit
-            </h6>
-          </div>
-        </div>
-        <div class="box b-3">
-          <div class="img-box ">
-            <img src="static/images/w-3.png" alt="">
-          </div>
-          <div class="name">
-            <h6>
-              Adipiscing elit
-            </h6>
-          </div>
-        </div>
-        <div class="box b-4">
-          <div class="img-box ">
-            <img src="static/images/w-4.png" alt="">
-          </div>
-          <div class="name">
-            <h6>
-              Adipiscing elit
-            </h6>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="btn-box">
-          <a href="">
-            Read More
-          </a>
-          <hr>
-        </div>
-      </div>
-     --> 
-    </section>
-
-
-    <!-- end work section -->
+     
 
     
  <!-- Comentarios feedback -->
@@ -559,7 +409,7 @@ input#slide{{ forloop.counter }}:checked ~ .pagination .pagination-item[for="sli
                   Dirección:
                 </h6>
                 <a href="https://goo.gl/maps/RUxqKJMrTkxVmz9C6" target="_blank">
-                  <img src="static/images/location.png" alt="">
+                  <img src="{% static 'images/location.png' %}" alt="ubicacion">
                   <span>
                     Dr. Rómulo Minchala Murillo, 091051  Milagro, Ecuador
                   </span>

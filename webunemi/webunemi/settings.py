@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-fvp)#-psk3hvhbdz+&#6!k&_ipc9=!*h!)1^9d=k5lqxwfihal
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.0.106' ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 CRISPY_TEMPLATE_PACK = "tailwind"

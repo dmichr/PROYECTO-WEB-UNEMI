@@ -413,88 +413,91 @@ a:focus {
   }
 
   .work_container {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    flex-wrap: wrap;
-    padding: 45px 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: nowrap; // Cambiado a nowrap para forzar horizontal
+  padding: 45px 0;
+  max-width: 1200px; // Ajusta según necesites
+  margin: 0 auto;
 
-    .box {
-      width: 275px;
-      height: 275px;
+  .box {
+    width: calc(25% - 20px); // 25% para 4 cajas, menos el margen
+    height: 275px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; // Distribuye el contenido verticalmente
+    padding: 20px;
+    background-color: $white;
+    border-radius: 5px;
+    margin: 0 10px; // Margen horizontal
+    box-shadow: 0 0 8px 0px rgba(0, 0, 0, .1);
+    transition: transform 0.3s ease; // Suaviza la transición de la animación
+
+    &:hover {
+      transform: translateY(-10px); // Efecto hover
+    }
+
+    .img-box {
+      width: 25px;
+      margin-bottom: 15px;
+
+      img {
+        width: 50px;
+        height: auto;
+      }
+    }
+
+    .name {
+      margin-top: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 35px 0 20px 0;
-      background-color: $white;
-      border-radius: 5px;
-      margin: 45px 10px;
-      box-shadow: 0 0 8px 0px rgba(0, 0, 0, .1);
-
-      .img-box {
-        width: 150px;
-
-        img {
-          width: 100%;
-        }
-      }
-
-      .name {
-        margin-top: 10px;
-      }
-
-      &.b-1,
-      &.b-3 {
-        animation: odd-box-animate 2s infinite;
-      }
-
-      &.b-2,
-      &.b-4 {
-        animation: even-box-animate 2s infinite;
-      }
-
-    }
-  }
-
-  @keyframes odd-box-animate {
-    0% {
-      transform: translateY(45px);
+      height: 100%;
     }
 
-    50% {
-      transform: translateY(-45px);
+    .leer-mas {
+      margin-top: auto;
+      color: #f97316; // Color naranja, ajusta según tu paleta
+      font-weight: bold;
     }
 
-    100% {
-      transform: translateY(45px);
-    }
-  }
-
-  @keyframes even-box-animate {
-    0% {
-      transform: translateY(-45px);
+    // Mantener las animaciones existentes
+    &:nth-child(odd) {
+      animation: odd-box-animate 3s ease-in-out infinite;
     }
 
-    50% {
-      transform: translateY(45px);
-    }
-
-    100% {
-      transform: translateY(-45px);
-    }
-  }
-
-  .btn-box {
-    a {
-      color: $white;
-    }
-
-    hr {
-      background-color: $white;
+    &:nth-child(even) {
+      animation: even-box-animate 3s ease-in-out infinite;
     }
   }
 }
 
+@keyframes odd-box-animate {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes even-box-animate {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(15px); }
+}
+
+.btn-box {
+  a {
+    color: $white;
+  }
+
+  hr {
+    background-color: $white;
+  }
+}
 
 
 // end work section
